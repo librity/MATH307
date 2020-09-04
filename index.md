@@ -15,4 +15,3 @@
 
 ## Textbook: 
 * We will follow a set of notes written by  Patrick Walls
-
