@@ -1,4 +1,4 @@
-# MATH 307 Applied Linear Algebra
+# MATH 307 Applied Linear Algebra !
 
 ## Section 101:
 **Instructor:  Richard Froese**
@@ -11,7 +11,7 @@
 
 * Email: mlange@math.ubc.ca
 * Lecture/Discussion (Section 102): MWF 4:00 – 5:00 pm, through zoom
-* Lecture/Discussion (Section 103): TTH:  9:30 – 11:00 am, through zoom
+* Lecture/Discussion (Section 103): TTH:  8:00 - 9:30 am, through zoom
 
 ## Textbook: 
 * We will follow a set of notes written by  Patrick Walls
