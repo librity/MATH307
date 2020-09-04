@@ -11,4 +11,4 @@ launch_buttons:
   jupyterhub_url            : "https://ubc.syzygy.ca/jupyter"
 
 repository:
-  url                       : "https://github.com/mlange01/MATH307"
+  url                       : "https://gitlab.math.ubc.ca/mlange/MATH307"
