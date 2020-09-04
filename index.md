@@ -10,7 +10,7 @@
 **Instructor: Markus Lange**
 
 * Email: mlange@math.ubc.ca
-* Lecture/Discussion (Section 102): MWF 4:00 – 5:00 pm, through zoom
+* Lecture/Discussion (Section 102): MWF 5:00 – 5:00 pm, through zoom
 * Lecture/Discussion (Section 103): TTH:  8:00 - 9:30 am, through zoom
 
 ## Textbook: 
