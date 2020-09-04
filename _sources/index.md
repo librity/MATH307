@@ -1,4 +1,4 @@
-# MATH 307 Applied Linear Algebra
+# MATH 307 Applied Linear Algebra !
 
 ## Section 101:
 **Instructor:  Richard Froese**
