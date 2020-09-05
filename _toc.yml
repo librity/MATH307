@@ -7,3 +7,4 @@
 - part: Linear Systems
   chapters: 
   - file: notebooks/IntroductionToPythonPart1.ipynb
+  - file: notebooks/01_linear_systems.ipynb
