@@ -4,10 +4,10 @@
   chapters: 
   - file: notebooks/IntroFirstLecture.ipynb
   
-- part: Section 101
+- part: Linear Systems
   chapters: 
   - file: notebooks/IntroductionToPythonPart1.ipynb
   
-- part: Section 102 
+- part: Section 102
   chapters: 
-  - file: notebooks/IntroductionToPythonPart1.ipynb
+  -file: notebooks/Solving-linear-systems.ipynb
