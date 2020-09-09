@@ -2,7 +2,7 @@
 
 
 <html> 
-<h2> We will use Python deployed in Jupyter notebooks to do computations in this course </h2>
+<h2> We will use Python deployed in Jupyter notebooks to do computations in this course. </h2>
 
 <h2> The UBC Jupyterhub can be used for calculations: </h2>
 
@@ -10,6 +10,8 @@
 </html>
 
 ## Notebooks: 
+
+- [Notebook from First Lecture](https://mlange01.github.io/MATH307/notebooks/IntroFirstLecture.html)
 
 ### Chapter 1 Linear Systems 
 
