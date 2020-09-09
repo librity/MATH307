@@ -10,8 +10,6 @@
 
 ## Notebooks: 
 
-- [Notebook First Lecture](https://mlange01.github.io/MATH307/notebooks/IntroFirstLecture.html)
-
 ### Chapter 1 Linear Systems 
 
 - [Introduction to Python (Part1)](https://mlange01.github.io/MATH307/notebooks/IntroductionToPythonPart1.html)
