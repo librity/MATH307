@@ -1,28 +1,25 @@
 # MATH 307 Applied Linear Algebra 
 
-## Learning Goals:
+### We will use Python deployed in Jupyter notebooks to do computations in this course
 
-* Summarize properties and constructions of matrix decompositions LU, QR and SVD
-* Perform matrix computations using mathematical software Python, SciPy and Jupyter
-* Compute solutions of large systems of linear equations using matrix decompositions
-* Compute least squares approximations of large linear systems using matrix decompositions
-* Compute eigenvalues of large matrices using iterative methods
-* Analyze digital signals using the discrete Fourier transform
-* Create and analyze mathematical models of real-world phenomenon
+#### The UBC Jupyterhub can be used for calculations:  
+
+<html> 
+<center> <h1> <a href="https://ubc.syzygy.ca/"> ubc.syzygy.ca </a> </center>
+</html>
+
+## Notebooks: 
+
+- [Notebook First Lecture](https://mlange01.github.io/MATH307/notebooks/IntroFirstLecture.html)
+
+### Chapter 1 Linear Systems 
+
+- [Introduction to Python (Part1)](https://mlange01.github.io/MATH307/notebooks/IntroductionToPythonPart1.html)
 
 
-## Section 101:
-**Instructor:  Richard Froese**
+### Chapter 2 Least Squares
 
-* Email:  rfroese@math.ubc.ca
-* Lecture/Discussion: MWF 2:00 – 3:00 pm, through zoom
+### Chapter 3 Eigenvalues Problems
 
-## Sections 102 and 103:
-**Instructor: Markus Lange**
+### Chapter 4 Discret Fourier Transform 
 
-* Email: mlange@math.ubc.ca
-* Lecture/Discussion (Section 102): MWF 4:00 – 5:00 pm, through zoom
-* Lecture/Discussion (Section 103): TTH:  8:00 - 9:30 am, through zoom
-
-## Textbook: 
-* We will follow a set of notes written by  Patrick Walls
