@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 Lets imaging you what to interpolate between some given data points for a project with some scientist on the other side of the earth. 
 
 You get the following data point
-(x_0, y_0) = (-3, 1) ; (x_1,y_1) = (0, -2) ; (x_2,y_2) = (2, 2)
+(x_0, y_0) = (-1, 8) ; (x_1,y_1) = (-0.8, 5.5) ; (x_2,y_2) = (0, 3)
 
 x = np.array([-1, -0.8, 0])
 y = np.array([8, 5.5, 3])
@@ -31,7 +31,7 @@ plt.plot(T,Y,'b-',x,y,'r.',markersize=10)
 plt.grid(True)
 plt.show()
 
-Then an email reaches you and you get the information that there has to be the additional constraint Y(-1.5) = 0. 
+Then an email reaches you and you get the information that there has to be the additional constraint Y(-1/3) = 3. 
 In other words you get an additional data point (x_3, y_3) = (-1/3, 3) 
 
 x = np.array([-1, -0.8, -1/3, 0])
@@ -152,3 +152,40 @@ plt.show()
 plt.imshow(kitten,cmap='gray')
 plt.show()
 
+**Homework Exercises**
+
+1. Find the general solution of the linear system:  $$
+\begin{array}{ r @{{}={}} r  >{{}}c<{{}} r  >{{}}c<{{}}  r }
+x_1 &-& 3x_2 &+& 4x_3 &=&  1 \\
+-2x_1 &+&  5x_2 &-& 7x_3 &=& 1 \\
+x_1 &-& 5x_2 &+& 8x_3 &=& 5 \\
+\end{array}
+$$
+
+
+2. Does the matrix equation $Ax = b$ have a solution? If yes, write down the general solution of the system:  
+$$ 
+A = 
+\begin{bmatrix}
+2 & -8 & 4 & 2 \\
+1 & -3 & 0 & 2 \\
+-1 & 2 & 2 & -4 \\
+-3 & 11 & -4 & 2
+\end{bmatrix}\,, \quad 
+b = \begin{bmatrix}
+1 \\ 2 \\ 5 \\ 2
+\end{bmatrix}
+$$
+
+3. What about the equation $Bx = c$? If it has a solution, write it down in the most general form:    
+$$
+B = \begin{bmatrix}
+1 & 1 & 1 & 1 \\
+1 & 1 & -1 & -1 \\
+1 & -1 & 0 & 0 \\
+0 & 0 & 1 & 1
+\end{bmatrix}\,, \quad 
+c = \begin{bmatrix}
+3 \\ 1 \\ 0 \\ 1
+\end{bmatrix}
+$$

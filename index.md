@@ -1,10 +1,14 @@
 # MATH 307 Applied Linear Algebra 
 
-We will use Python deployed in Jupyter notebooks to do computations. 
+### We will use Python deployed in Jupyter notebooks to do computations in this course
 
-- [Direct link to Syzygy](https://ubc.syzygy.ca/)
+#### The UBC Jupyterhub can be used for calculations:  
 
-## Notebooks 
+<html> 
+<center> <h1> <a href="https://ubc.syzygy.ca/"> ubc.syzygy.ca </a> </center>
+</html>
+
+## Notebooks: 
 
 - [Notebook First Lecture](https://mlange01.github.io/MATH307/notebooks/IntroFirstLecture.html)
 
@@ -12,7 +16,6 @@ We will use Python deployed in Jupyter notebooks to do computations.
 
 - [Introduction to Python (Part1)](https://mlange01.github.io/MATH307/notebooks/IntroductionToPythonPart1.html)
 
- 
 
 ### Chapter 2 Least Squares
 

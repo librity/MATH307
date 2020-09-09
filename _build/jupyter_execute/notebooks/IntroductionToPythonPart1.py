@@ -150,75 +150,31 @@ $$
 2. Does the matrix equation $Ax = b$ have a solution? If yes, write down the general solution of the system:  
 $$ 
 A = 
-\begin{pmatrix}
+\begin{bmatrix}
 2 & -8 & 4 & 2 \\
 1 & -3 & 0 & 2 \\
 -1 & 2 & 2 & -4 \\
 -3 & 11 & -4 & 2
-\end{pmatrix}\,, \quad 
-b = \begin{pmatrix}
+\end{bmatrix}\,, \quad 
+b = \begin{bmatrix}
 1 \\ 2 \\ 5 \\ 2
-\end{pmatrix}
+\end{bmatrix}
 $$
+
 3. What about the equation $Bx = c$? If it has a solution, write it down in the most general form:    
 $$
-B = \begin{pmatrix}
+B = \begin{bmatrix}
 1 & 1 & 1 & 1 \\
 1 & 1 & -1 & -1 \\
 1 & -1 & 0 & 0 \\
 0 & 0 & 1 & 1
-\end{pmatrix}\,, \quad 
-c = \begin{pmatrix}
+\end{bmatrix}\,, \quad 
+c = \begin{bmatrix}
 3 \\ 1 \\ 0 \\ 1
-\end{pmatrix}
+\end{bmatrix}
 $$
 
-*Exercise 1*
-
-M = sy.Matrix([[1,-3,4],[-2,5,-7],[1,-5,8]])
-a = sy.Matrix([[1],[1],[5]])
-
-M
-
-a
-
-M.rref()
-
-M.det()
-
-M.inv()*a
-
-*Exercise 2*
-
-A = sy.Matrix([[2,-8,4, 2],[1,-3,0,2],[-1,2,2,-4],[-3,11,-4,2]])
-b = sy.Matrix([[1],[2],[5],[2]])
-
-A
-
-A.rref()
-
-A.det()
-
-Aug=A.col_insert(-1,b)
-
-Aug.rref()
-
-*Exercise 3*
-
-B = sy.Matrix([[1,1,1,1],[1,1,-1,-1],[1,-1,0,0],[0,0,1,1]])
-c = sy.Matrix([[3],[1],[0],[1]])
-
-B.rref()
-
-B.det()
-
-Bug=B.col_insert(-1,c)
-
-Bug.rref()
-
-B.nullspace()
-
-B.columnspace()
+Use SymPy solve these exercises. 
 
 ## Can we always use SymPy?
 
