@@ -2,15 +2,13 @@
 
 ### We will use Python deployed in Jupyter notebooks to do computations in this course
 
-#### The UBC Jupyterhub hosted on ubc.syzygy.ca can be used for calculations:  
+#### The UBC Jupyterhub can be used for calculations:  
 
 <html> 
-<center> <h1> <a href="https://ubc.syzygy.ca/"> Syzygy </a> </center>
+<center> <h1> <a href="https://ubc.syzygy.ca/"> ubc.syzygy.ca </a> </center>
 </html>
 
 ## Notebooks: 
-
-- [Notebook First Lecture](https://mlange01.github.io/MATH307/notebooks/IntroFirstLecture.html)
 
 ### Chapter 1 Linear Systems 
 
