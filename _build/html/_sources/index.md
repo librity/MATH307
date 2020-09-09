@@ -1,10 +1,11 @@
 # MATH 307 Applied Linear Algebra 
 
-### We will use Python deployed in Jupyter notebooks to do computations in this course
-
-#### The UBC Jupyterhub can be used for calculations:  
 
 <html> 
+<h2> We will use Python deployed in Jupyter notebooks to do computations in this course </h2>
+
+<h2> The UBC Jupyterhub can be used for calculations: </h2>
+
 <center> <h1> <a href="https://ubc.syzygy.ca/"> ubc.syzygy.ca </a> </center>
 </html>
 
