@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Last time: SymPy &#8212; Applied Linear Algebra</title>
+    <title>Part 2: NumPy &#8212; Applied Linear Algebra</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
@@ -93,22 +93,7 @@
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Last time: SymPy
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="#part-2-numpy">
    Part 2: NumPy
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="#numpy-arrays">
-   NumPy Arrays
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="#matrix-operations-and-functions">
-   Matrix Operations and Functions
   </a>
  </li>
  <li class="toctree-l1">
@@ -202,7 +187,53 @@
             <i class="fas fa-list"></i> Contents
         </div>
         <nav id="bd-toc-nav">
-            
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#numpy-arrays">
+   NumPy Arrays
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#array-attributes">
+     Array Attributes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#matrix-operations-and-functions">
+   Matrix Operations and Functions
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#arithmetic-operations">
+     Arithmetic Operations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#matrix-multiplication">
+     Matrix Multiplication
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#matrix-powers">
+     Matrix Powers
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tranpose">
+     Tranpose
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#trace">
+     Trace
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
         </nav>
     </div>
 </div>
@@ -211,11 +242,8 @@
         
               <div>
                 
-  <div class="section" id="last-time-sympy">
-<h1>Last time: SymPy<a class="headerlink" href="#last-time-sympy" title="Permalink to this headline">¶</a></h1>
-<p>Last time we discussed how we can use the SymPy Library. We saw that it is useful for symbolic calculation but has problems if we are interested in the acutal numeric value.</p>
+  <p>Last time we discussed how we can use the SymPy Library. We saw that it is useful for symbolic calculation but has problems if we are interested in the acutal numeric value.</p>
 <p><em>Today we talk about NumPy and the linear algebra subpackage SciPy [<code class="docutils literal notranslate"><span class="pre">scipy.linalg</span></code>]</em></p>
-</div>
 <div class="section" id="part-2-numpy">
 <h1>Part 2: NumPy<a class="headerlink" href="#part-2-numpy" title="Permalink to this headline">¶</a></h1>
 <div class="cell docutils container">
@@ -225,14 +253,13 @@
 </div>
 </div>
 </div>
-</div>
 <div class="section" id="numpy-arrays">
-<h1>NumPy Arrays<a class="headerlink" href="#numpy-arrays" title="Permalink to this headline">¶</a></h1>
+<h2>NumPy Arrays<a class="headerlink" href="#numpy-arrays" title="Permalink to this headline">¶</a></h2>
 <p>Let’s begin with a quick review of <span class="xref myst">NumPy arrays</span>. We can think of a 1D NumPy array as a list of numbers. We can think of a 2D NumPy array as a matrix. And we can think of a 3D array as a cube of numbers.
 When we select a row or column from a 2D NumPy array, the result is a 1D NumPy array (called a <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/arrays.indexing.html#basic-slicing-and-indexing">slice</a>). This is different from MATLAB where when you select a column from a matrix it’s returned as a column vector which is a 2D MATLAB matrix.</p>
 <p>It can get a bit confusing and so we need to keep track of the shape, size and dimension of our NumPy arrays.</p>
 <div class="section" id="array-attributes">
-<h2>Array Attributes<a class="headerlink" href="#array-attributes" title="Permalink to this headline">¶</a></h2>
+<h3>Array Attributes<a class="headerlink" href="#array-attributes" title="Permalink to this headline">¶</a></h3>
 <p>Create a 1D (one-dimensional) NumPy array and verify its dimensions, shape and size.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -471,9 +498,9 @@ Size: 3
 </div>
 </div>
 <div class="section" id="matrix-operations-and-functions">
-<h1>Matrix Operations and Functions<a class="headerlink" href="#matrix-operations-and-functions" title="Permalink to this headline">¶</a></h1>
+<h2>Matrix Operations and Functions<a class="headerlink" href="#matrix-operations-and-functions" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="arithmetic-operations">
-<h2>Arithmetic Operations<a class="headerlink" href="#arithmetic-operations" title="Permalink to this headline">¶</a></h2>
+<h3>Arithmetic Operations<a class="headerlink" href="#arithmetic-operations" title="Permalink to this headline">¶</a></h3>
 <p>Recall that arithmetic <a class="reference external" href="../scipy/numpy/#operations-and-functions">array operations</a> <code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code>, <code class="docutils literal notranslate"><span class="pre">/</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span></code> and <code class="docutils literal notranslate"><span class="pre">**</span></code> are performed elementwise on NumPy arrays. Let’s create a NumPy array and do some computations:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -504,7 +531,7 @@ Size: 3
 </div>
 </div>
 <div class="section" id="matrix-multiplication">
-<h2>Matrix Multiplication<a class="headerlink" href="#matrix-multiplication" title="Permalink to this headline">¶</a></h2>
+<h3>Matrix Multiplication<a class="headerlink" href="#matrix-multiplication" title="Permalink to this headline">¶</a></h3>
 <p>We use the <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> operator to do matrix multiplication with NumPy arrays:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -590,7 +617,7 @@ B = \begin{bmatrix}
 </div>
 </div>
 <div class="section" id="matrix-powers">
-<h2>Matrix Powers<a class="headerlink" href="#matrix-powers" title="Permalink to this headline">¶</a></h2>
+<h3>Matrix Powers<a class="headerlink" href="#matrix-powers" title="Permalink to this headline">¶</a></h3>
 <p>There’s no symbol for matrix powers and so we must import the function <code class="docutils literal notranslate"><span class="pre">matrix_power</span></code> from the subpackage <code class="docutils literal notranslate"><span class="pre">numpy.linalg</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -681,7 +708,7 @@ B = \begin{bmatrix}
 </div>
 </div>
 <div class="section" id="tranpose">
-<h2>Tranpose<a class="headerlink" href="#tranpose" title="Permalink to this headline">¶</a></h2>
+<h3>Tranpose<a class="headerlink" href="#tranpose" title="Permalink to this headline">¶</a></h3>
 <p>We can take the transpose with <code class="docutils literal notranslate"><span class="pre">.T</span></code> attribute:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -725,7 +752,7 @@ B = \begin{bmatrix}
 </div>
 </div>
 <div class="section" id="trace">
-<h2>Trace<a class="headerlink" href="#trace" title="Permalink to this headline">¶</a></h2>
+<h3>Trace<a class="headerlink" href="#trace" title="Permalink to this headline">¶</a></h3>
 <p>We can find the trace of a matrix using the function <code class="docutils literal notranslate"><span class="pre">numpy.trace</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -736,6 +763,7 @@ B = \begin{bmatrix}
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8
 </pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -865,8 +893,8 @@ p_A(A) = A^2 - \mathrm{tr}(A) A + \mathrm{det}(A) I = 0
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[8 3]
- [8 0]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[5 4]
+ [4 2]]
 </pre></div>
 </div>
 </div>
@@ -881,8 +909,8 @@ p_A(A) = A^2 - \mathrm{tr}(A) A + \mathrm{det}(A) I = 0
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0., 0.],
-       [0., 0.]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-8.8817842e-16,  0.0000000e+00],
+       [ 0.0000000e+00, -8.8817842e-16]])
 </pre></div>
 </div>
 </div>
