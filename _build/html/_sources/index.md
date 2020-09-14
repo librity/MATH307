@@ -17,6 +17,12 @@
 
 - [Introduction to Python (Part1)](https://mlange01.github.io/MATH307/notebooks/IntroductionToPythonPart1.html)
 
+- [Introduction to Python (Part2)](https://mlange01.github.io/MATH307/notebooks/IntroductionToPythonPart2.html)
+
+- [Solving Linear Systems](https://mlange01.github.io/MATH307/notebooks/Solving-linear-systems.ipynb.html)
+
+
+
 
 ### Chapter 2 Least Squares
 

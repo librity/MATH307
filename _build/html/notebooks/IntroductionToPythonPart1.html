@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MATH 307 Applications of Linear Algebra &#8212; Applied Linear Algebra</title>
+    <title>Part 1: SymPy &#8212; Applied Linear Algebra</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
@@ -38,6 +38,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Part 2: NumPy" href="IntroductionToPythonPart2.html" />
     <link rel="prev" title="MATH 307 – What is it useful for" href="IntroFirstLecture.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -89,7 +90,32 @@
 <ul class="current nav sidenav_l1">
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   MATH 307   Applications of Linear Algebra
+   Part 1: SymPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="#from-last-time">
+   From last time
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="#can-we-always-use-sympy">
+   Can we always use SymPy?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="IntroductionToPythonPart2.html">
+   Part 2: NumPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="IntroductionToPythonPart2.html#linear-algebra-with-scipy">
+   Linear Algebra with SciPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Solving-linear-systems.html">
+   Solving Linear Systems
   </a>
  </li>
 </ul>
@@ -178,24 +204,7 @@
             <i class="fas fa-list"></i> Contents
         </div>
         <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#part-1-sympy">
-   Part 1: SymPy
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#homework-from-last-time">
-   Homework from last time
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#can-we-always-use-sympy">
-   Can we always use SymPy?
-  </a>
- </li>
-</ul>
-
+            
         </nav>
     </div>
 </div>
@@ -204,13 +213,12 @@
         
               <div>
                 
-  <div class="section" id="math-307-applications-of-linear-algebra">
-<h1>MATH 307   Applications of Linear Algebra<a class="headerlink" href="#math-307-applications-of-linear-algebra" title="Permalink to this headline">¶</a></h1>
+  <p><strong>MATH 307   Applications of Linear Algebra</strong></p>
 <p>In this course we will use Python to solve and analyse linear equation with the help of a computer.
 This small <em>Introduction</em> will show you how you can use Python on your computer and give you a first glimps of what it is capable off. There are many Python tutorials in the internet and the best way to learn a (new) programming <em>language</em> is to get out there and play around with it.</p>
 <p>We will mainly use the Python libraries NumPy, Matplotlib, SciPy and SymPy. In order to use them we need to import them</p>
 <div class="section" id="part-1-sympy">
-<h2>Part 1: SymPy<a class="headerlink" href="#part-1-sympy" title="Permalink to this headline">¶</a></h2>
+<h1>Part 1: SymPy<a class="headerlink" href="#part-1-sympy" title="Permalink to this headline">¶</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sympy</span> <span class="k">as</span> <span class="nn">sy</span>
@@ -302,7 +310,7 @@ This small <em>Introduction</em> will show you how you can use Python on your co
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">row_insert</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">Matrix</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">]))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">row_insert</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">Matrix</span><span class="p">([[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">]]))</span>
 </pre></div>
 </div>
 </div>
@@ -714,11 +722,11 @@ Lets try it again</p>
 </div>
 </div>
 </div>
-<div class="section" id="homework-from-last-time">
-<h2>Homework from last time<a class="headerlink" href="#homework-from-last-time" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="from-last-time">
+<h1>From last time<a class="headerlink" href="#from-last-time" title="Permalink to this headline">¶</a></h1>
 <p>Last lecture we gave you some linear systems to solve at home. By now we have already seen how we can use the Sym.py library to do this with a computer.</p>
 <p>Why don’t you try this out now for yourself. I will be here to answer questions. At the end of this lecture I will present my solutions.</p>
-<p><strong>Homework Exercises</strong></p>
+<p><strong>Exercises</strong></p>
 <ol class="simple">
 <li><p>Find the general solution of the linear system:  $<span class="math notranslate nohighlight">\(
 \begin{array}{ r &#64;{{}={}} r  &gt;{{}}c&lt;{{}} r  &gt;{{}}c&lt;{{}}  r }
@@ -756,7 +764,7 @@ c = \begin{bmatrix}
 <p>Use SymPy solve these exercises.</p>
 </div>
 <div class="section" id="can-we-always-use-sympy">
-<h2>Can we always use SymPy?<a class="headerlink" href="#can-we-always-use-sympy" title="Permalink to this headline">¶</a></h2>
+<h1>Can we always use SymPy?<a class="headerlink" href="#can-we-always-use-sympy" title="Permalink to this headline">¶</a></h1>
 <p>We see that we can already do a lot with SymPy. However, as was said in the beginning this library is for symbolic calculations, not numerical ones. For example</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -792,7 +800,6 @@ c = \begin{bmatrix}
 <p>This is an approximate solution, however one which is accurate enough on a computer where we will always make errors due to the machine precision.</p>
 <p><strong>Next time we will learn more about NumPy</strong></p>
 </div>
-</div>
 
     <script type="text/x-thebe-config">
     {
@@ -823,6 +830,7 @@ c = \begin{bmatrix}
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="IntroFirstLecture.html" title="previous page">MATH 307  –   What is it useful for</a>
+    <a class='right-next' id="next-link" href="IntroductionToPythonPart2.html" title="next page">Part 2: NumPy</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

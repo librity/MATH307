@@ -8,5 +8,6 @@
   chapters: 
   - file: notebooks/IntroductionToPythonPart1.ipynb
   - file: notebooks/IntroductionToPythonPart2.ipynb
+  - file: notebooks/Solving-linear-systems.ipynb
   
 

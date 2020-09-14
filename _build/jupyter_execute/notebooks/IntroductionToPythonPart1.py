@@ -1,4 +1,4 @@
-# MATH 307   Applications of Linear Algebra
+**MATH 307   Applications of Linear Algebra**
 
 In this course we will use Python to solve and analyse linear equation with the help of a computer. 
 This small *Introduction* will show you how you can use Python on your computer and give you a first glimps of what it is capable off. There are many Python tutorials in the internet and the best way to learn a (new) programming *language* is to get out there and play around with it. 
@@ -27,7 +27,7 @@ M.col_del(1)
 
 M
 
-M = M.row_insert(-1, Matrix([-1,-2]))
+M = M.row_insert(2, Matrix([[-1,-2]]))
 
 An error, such an error tells us a lot! Lets see what the problem is. 
 It does not know the name 'Matrix' and it is clear why, we did not specify that Matrix belongs to the SymPy library. 
@@ -130,13 +130,13 @@ N.nullspace()
 
 N.columnspace()
 
-## Homework from last time
+## From last time
 
 Last lecture we gave you some linear systems to solve at home. By now we have already seen how we can use the Sym.py library to do this with a computer. 
 
 Why don't you try this out now for yourself. I will be here to answer questions. At the end of this lecture I will present my solutions. 
 
-**Homework Exercises**
+**Exercises**
 
 1. Find the general solution of the linear system:  $$
 \begin{array}{ r @{{}={}} r  >{{}}c<{{}} r  >{{}}c<{{}}  r }
