@@ -37,7 +37,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="MATH 307 Applications of Linear Algebra" href="IntroductionToPythonPart1.html" />
+    <link rel="next" title="Solving Linear Systems" href="Solving-linear-systems.html" />
+    <link rel="prev" title="Part 1: SymPy" href="IntroductionToPythonPart1.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -88,7 +89,7 @@
 <ul class="current nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="IntroductionToPythonPart1.html">
-   MATH 307   Applications of Linear Algebra
+   Part 1: SymPy
   </a>
  </li>
  <li class="toctree-l1 current active">
@@ -97,8 +98,8 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="#linear-algebra-with-scipy">
-   Linear Algebra with SciPy
+  <a class="reference internal" href="Solving-linear-systems.html">
+   Solving Linear Systems
   </a>
  </li>
 </ul>
@@ -231,6 +232,11 @@
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise">
+   Exercise
+  </a>
  </li>
 </ul>
 
@@ -499,13 +505,93 @@ Size: 3
 </div>
 <div class="section" id="matrix-operations-and-functions">
 <h2>Matrix Operations and Functions<a class="headerlink" href="#matrix-operations-and-functions" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 3  4]
+ [-1  5]]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1 2]
+ [3 4]]
+</pre></div>
+</div>
+</div>
+</div>
 <div class="section" id="arithmetic-operations">
 <h3>Arithmetic Operations<a class="headerlink" href="#arithmetic-operations" title="Permalink to this headline">¶</a></h3>
 <p>Recall that arithmetic <a class="reference external" href="../scipy/numpy/#operations-and-functions">array operations</a> <code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code>, <code class="docutils literal notranslate"><span class="pre">/</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span></code> and <code class="docutils literal notranslate"><span class="pre">**</span></code> are performed elementwise on NumPy arrays. Let’s create a NumPy array and do some computations:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">]])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">+</span> <span class="n">M</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[4, 6],
+       [2, 9]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span><span class="o">-</span><span class="n">M</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-2, -2],
+       [ 4, -1]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">3</span><span class="o">*</span><span class="n">M</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 9, 12],
+       [-3, 15]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span><span class="o">*</span><span class="n">M</span> <span class="o">-</span> <span class="mi">4</span><span class="o">*</span><span class="n">N</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[  2,   0],
+       [-14,  -6]])
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Attention !!!</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -598,6 +684,9 @@ B = \begin{bmatrix}
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1. 0.]
  [0. 1.]]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
@@ -768,159 +857,10 @@ B = \begin{bmatrix}
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="linear-algebra-with-scipy">
-<h1>Linear Algebra with SciPy<a class="headerlink" href="#linear-algebra-with-scipy" title="Permalink to this headline">¶</a></h1>
-<p>The main Python package for linear algebra is the SciPy subpackage <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/linalg.html"><code class="docutils literal notranslate"><span class="pre">scipy.linalg</span></code></a> which builds on NumPy. Let’s import that packages:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scipy.linalg</span> <span class="k">as</span> <span class="nn">la</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="section" id="inverse">
-<h2>Inverse<a class="headerlink" href="#inverse" title="Permalink to this headline">¶</a></h2>
-<p>We can find the inverse using the function <code class="docutils literal notranslate"><span class="pre">scipy.linalg.inv</span></code>:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1 2]
- [3 4]]
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">la</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-2. ,  1. ],
-       [ 1.5, -0.5]])
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="determinant">
-<h2>Determinant<a class="headerlink" href="#determinant" title="Permalink to this headline">¶</a></h2>
-<p>We find the determinant using the function <code class="docutils literal notranslate"><span class="pre">scipy.linalg.det</span></code>:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1 2]
- [3 4]]
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">la</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-2.0
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="example">
-<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="characteristic-polynomials-and-cayley-hamilton-theorem">
-<h3>Characteristic Polynomials and Cayley-Hamilton Theorem<a class="headerlink" href="#characteristic-polynomials-and-cayley-hamilton-theorem" title="Permalink to this headline">¶</a></h3>
-<p>The characteristic polynomial of a 2 by 2 square matrix <span class="math notranslate nohighlight">\(A\)</span> is</p>
-<div class="math notranslate nohighlight">
-\[
-p_A(\lambda) = \det(A - \lambda I) = \lambda^2 - \mathrm{tr}(A) \lambda + \mathrm{det}(A)
-\]</div>
-<p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Cayley%E2%80%93Hamilton_theorem">Cayley-Hamilton Theorem</a> states that any square matrix satisfies its characteristic polynomial. For a matrix <span class="math notranslate nohighlight">\(A\)</span> of size 2, this means that</p>
-<div class="math notranslate nohighlight">
-\[
-p_A(A) = A^2 - \mathrm{tr}(A) A + \mathrm{det}(A) I = 0
-\]</div>
-<p>Let’s verify the Cayley-Hamilton Theorem for a few different matrices.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1 2]
- [3 4]]
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">trace_A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">trace</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
-<span class="n">det_A</span> <span class="o">=</span> <span class="n">la</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
-<span class="n">I</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">A</span> <span class="o">@</span> <span class="n">A</span> <span class="o">-</span> <span class="n">trace_A</span> <span class="o">*</span> <span class="n">A</span> <span class="o">+</span> <span class="n">det_A</span> <span class="o">*</span> <span class="n">I</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0., 0.],
-       [0., 0.]])
-</pre></div>
-</div>
-</div>
-</div>
-<p>Let’s do this again for some random matrices:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[5 4]
- [4 2]]
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">trace_N</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">trace</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
-<span class="n">det_N</span> <span class="o">=</span> <span class="n">la</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
-<span class="n">I</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">N</span> <span class="o">@</span> <span class="n">N</span> <span class="o">-</span> <span class="n">trace_N</span> <span class="o">*</span> <span class="n">N</span> <span class="o">+</span> <span class="n">det_N</span> <span class="o">*</span> <span class="n">I</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-8.8817842e-16,  0.0000000e+00],
-       [ 0.0000000e+00, -8.8817842e-16]])
-</pre></div>
-</div>
-</div>
-</div>
-<p>Next time we will see how to solve a matrix equation <span class="math notranslate nohighlight">\(Ax = b\)</span> in NumPy and SciPy</p>
-</div>
-</div>
 <div class="section" id="exercise">
 <h2>Exercise<a class="headerlink" href="#exercise" title="Permalink to this headline">¶</a></h2>
 <p>Compute the matrix equation <span class="math notranslate nohighlight">\(AB + 2B^2 - I\)</span> for matrices <span class="math notranslate nohighlight">\(A = \begin{bmatrix} 3 &amp; 4 \\\ -1 &amp; 2 \end{bmatrix}\)</span> and <span class="math notranslate nohighlight">\(B = \begin{bmatrix} 5 &amp; 2 \\\ 8 &amp; -3 \end{bmatrix}\)</span>.</p>
+<p><strong>Now lets see how we can solve a linear systems with the help of Numpy and the linear algebra subpackage of SciPy</strong></p>
 </div>
 </div>
 
@@ -952,7 +892,8 @@ p_A(A) = A^2 - \mathrm{tr}(A) A + \mathrm{det}(A) I = 0
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="IntroductionToPythonPart1.html" title="previous page">MATH 307   Applications of Linear Algebra</a>
+    <a class='left-prev' id="prev-link" href="IntroductionToPythonPart1.html" title="previous page">Part 1: SymPy</a>
+    <a class='right-next' id="next-link" href="Solving-linear-systems.html" title="next page">Solving Linear Systems</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
