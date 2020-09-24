@@ -21,6 +21,8 @@
 
 - [Solving Linear Systems](https://mlange01.github.io/MATH307/notebooks/Solving-linear-systems.html)
 
+- [Norms](https://mlange01.github.io/MATH307/notebooks/NormsInPython.html)
+
 
 
 

@@ -1,0 +1,41 @@
+Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/jupyter_cache/executors/utils.py", line 56, in single_nb_execution
+    record_timing=False,
+  File "/opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/nbclient/client.py", line 1082, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/nbclient/util.py", line 74, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/nbclient/util.py", line 53, in just_run
+    return loop.run_until_complete(coro)
+  File "/opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/asyncio/base_events.py", line 587, in run_until_complete
+    return future.result()
+  File "/opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/nbclient/client.py", line 536, in async_execute
+    cell, index, execution_count=self.code_cells_executed + 1
+  File "/opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/nbclient/client.py", line 827, in async_execute_cell
+    self._check_raise_for_error(cell, exec_reply)
+  File "/opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/nbclient/client.py", line 735, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply['content'])
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+import numpy as np  
+import numpy.linalg as npla 
+v = np.array([-4,6,-3])
+l1 = npla.norm(v,1)
+print('l1 =',l1,'\n')
+l2 = npla.norm(v,2)
+print('l2 =',l2,'\n')
+linf = npla.norm(v,inf)
+print('linf =',linf,'\n')
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-14a90817b6a8>[0m in [0;36m<module>[0;34m[0m
+[1;32m      6[0m [0ml2[0m [0;34m=[0m [0mnpla[0m[0;34m.[0m[0mnorm[0m[0;34m([0m[0mv[0m[0;34m,[0m[0;36m2[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      7[0m [0mprint[0m[0;34m([0m[0;34m'l2 ='[0m[0;34m,[0m[0ml2[0m[0;34m,[0m[0;34m'\n'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 8[0;31m [0mlinf[0m [0;34m=[0m [0mnpla[0m[0;34m.[0m[0mnorm[0m[0;34m([0m[0mv[0m[0;34m,[0m[0minf[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      9[0m [0mprint[0m[0;34m([0m[0;34m'linf ='[0m[0;34m,[0m[0mlinf[0m[0;34m,[0m[0;34m'\n'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'inf' is not defined
+NameError: name 'inf' is not defined
+
