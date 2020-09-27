@@ -23,6 +23,8 @@
 
 - [Norms](https://mlange01.github.io/MATH307/notebooks/NormsInPython.html)
 
+- [Interpolation](https://mlange01.github.io/MATH307/notebooks/Polynomial_interpolation.html)
+
 
 
 
