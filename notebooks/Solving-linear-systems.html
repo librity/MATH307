@@ -133,6 +133,38 @@
   </a>
  </li>
 </ul>
+<p class="caption">
+ <span class="caption-text">
+  Homework 1
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="homework1LU.html">
+   The LU decomposition in python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="homework1_chebyshev.html">
+   Polynomial approximation: Equally spaced points vs. Chebyshev points
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="homework1_BVP.html">
+   Re-using the A=PLU factorization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="homework1_BVP.html#the-main-point">
+   The main point
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="homework1_BVP.html#solving-the-dirichlet-problem">
+   Solving the Dirichlet problem
+  </a>
+ </li>
+</ul>
 
 </nav>
 
@@ -767,6 +799,9 @@ E^3 = \begin{bmatrix}
  [ 0.  3.  2.  0.  1.  1.]]
 </pre></div>
 </div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -1338,9 +1373,9 @@ x + y &amp;= 1
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.98363266, 0.26826059, 0.23567601],
-       [0.36498265, 0.85934662, 0.48002463],
-       [0.96362168, 0.43224536, 0.59079179]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.71522797, 0.61249725, 0.26044368],
+       [0.19557689, 0.79696428, 0.09936858],
+       [0.17659381, 0.84050469, 0.0220275 ]])
 </pre></div>
 </div>
 </div>
@@ -1353,10 +1388,10 @@ x + y &amp;= 1
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.10592823],
-       [0.06496332],
-       [0.99683867],
-       [0.46835329]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.35071176],
+       [0.473607  ],
+       [0.41716625],
+       [0.14175927]])
 </pre></div>
 </div>
 </div>
@@ -1370,7 +1405,7 @@ x + y &amp;= 1
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>30.2 ms ± 1.5 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>26 ms ± 622 µs per loop (mean ± std. dev. of 7 runs, 10 loops each)
 </pre></div>
 </div>
 </div>
@@ -1383,7 +1418,7 @@ x + y &amp;= 1
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>106 ms ± 2.34 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>103 ms ± 2.56 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
 </pre></div>
 </div>
 </div>

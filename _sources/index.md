@@ -25,7 +25,13 @@
 
 - [Interpolation](https://mlange01.github.io/MATH307/notebooks/Polynomial_interpolation.html)
 
+### Homework 1
 
+- [Homework-Part1-LU](https://mlange01.github.io/MATH307/notebooks/homework1LU.html)
+
+- [Homework-Part2-Chebyshev](https://mlange01.github.io/MATH307/notebooks/homework1_chebyshev.html)
+
+- [Homework-Part3-BVP](https://mlange01.github.io/MATH307/notebooks/homework1_BVP.html)
 
 
 ### Chapter 2 Least Squares
