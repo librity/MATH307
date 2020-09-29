@@ -12,4 +12,10 @@
   - file: notebooks/NormsInPython.ipynb
   - file: notebooks/Polynomial_interpolation.ipynb
   
+- part: Homework 1
+  chapters:
+  - file: notebooks/homework1LU.ipynb
+  - file: notebooks/homework1_chebyshev.ipynb
+  - file: notebooks/homework1_BVP.ipynb
+  
 
