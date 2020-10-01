@@ -158,16 +158,6 @@
    Re-using the A=PLU factorization
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="#the-main-point">
-   The main point
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="#solving-the-dirichlet-problem">
-   Solving the Dirichlet problem
-  </a>
- </li>
 </ul>
 
 </nav>
@@ -256,34 +246,27 @@
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Re-using the A=PLU factorization
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#some-notation">
+   Some notation
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#some-notation">
-     Some notation
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#vertices-boundary-the-discrete-laplacian-boundary-conditions">
-     Vertices, boundary, the discrete Laplacian, boundary conditions.
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#dirichlet-problem">
-     Dirichlet problem:
-    </a>
-   </li>
-  </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vertices-boundary-the-discrete-laplacian-boundary-conditions">
+   Vertices, boundary, the discrete Laplacian, boundary conditions.
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dirichlet-problem">
+   Dirichlet problem:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#the-main-point">
    The main point
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#solving-the-dirichlet-problem">
    Solving the Dirichlet problem
   </a>
@@ -370,9 +353,8 @@ QLQ f_i = -QLb
 \]</div>
 <p>Conversely, if <span class="math notranslate nohighlight">\(f_i\)</span> satisfies this equation, then <span class="math notranslate nohighlight">\(f\)</span> defined by <span class="math notranslate nohighlight">\(f(v) = \begin{cases} f_i(v)&amp; v\in V_i\\b(v) &amp; v\in B\\\end{cases}\)</span> solves the Dirichlet problem with boundary condition <span class="math notranslate nohighlight">\(b\)</span>.</p>
 </div>
-</div>
 <div class="section" id="the-main-point">
-<h1>The main point<a class="headerlink" href="#the-main-point" title="Permalink to this headline">¶</a></h1>
+<h2>The main point<a class="headerlink" href="#the-main-point" title="Permalink to this headline">¶</a></h2>
 <p>If we want to solve the Dirichlet problem for two different boundary condtions on the same graph, then the matrix <span class="math notranslate nohighlight">\(QLQ\)</span> doesn’t change. So we can re-use the PLU decomposition.</p>
 <p>Let’s see how this works in the example graph above. To keep track of the vertices we need to label them. Here is a labelling:</p>
 <p><img alt="title" src="../_images/d2.png" /></p>
@@ -385,7 +367,7 @@ QLQ = \begin{bmatrix} -2 &amp; 1 &amp; 1\\   1&amp; -4 &amp;  1\\1 &amp;1&amp;-3
 \)</span>$</p>
 </div>
 <div class="section" id="solving-the-dirichlet-problem">
-<h1>Solving the Dirichlet problem<a class="headerlink" href="#solving-the-dirichlet-problem" title="Permalink to this headline">¶</a></h1>
+<h2>Solving the Dirichlet problem<a class="headerlink" href="#solving-the-dirichlet-problem" title="Permalink to this headline">¶</a></h2>
 <p>Let’s solve the Dirichlet problem for the example graph for the boundary condition <span class="math notranslate nohighlight">\(b(v_2) = 1\)</span> and <span class="math notranslate nohighlight">\(b(v_3)=0\)</span>. The corresponding vector in <span class="math notranslate nohighlight">\(\ell^2(V)\)</span> is  <span class="math notranslate nohighlight">\(b=\begin{bmatrix}0\\0\\1\\0\\0\\\end{bmatrix}\)</span>. Then
 $<span class="math notranslate nohighlight">\(
 Lb= \begin{bmatrix}0\\1\\-2\\1\\0\\\end{bmatrix}
@@ -500,6 +482,7 @@ For the graph with boundary shown here</strong></p>
 <p><img alt="title" src="../_images/d3.png" /></p>
 <p><strong>Compute the solution of the Dirichlet problem  with boundary values <span class="math notranslate nohighlight">\(b_0=1\)</span>, <span class="math notranslate nohighlight">\(b_1=b_2=\cdots = b_5=0\)</span> using the LU decomposition. Then reuse the decomposition to solve the Dirichlet problem  with boundary values <span class="math notranslate nohighlight">\(b_0=b_1=b_2=\cdots = b_5=1\)</span>
 and then with values <span class="math notranslate nohighlight">\(b_0= 0, b_1=1 , b_2=b_3\cdots = b_5=0\)</span>. (Actually there is an even easier way to get this last one using the symmetry. Use this to check your computed answer.)</strong></p>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
