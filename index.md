@@ -23,11 +23,15 @@
 
 - [Norms](https://mlange01.github.io/MATH307/notebooks/NormsInPython.html)
 
-- [Interpolation](https://mlange01.github.io/MATH307/notebooks/Polynomial_interpolation.html)
+- [Polynomial Interpolation](https://mlange01.github.io/MATH307/notebooks/Polynomial_interpolation.html)
 
-- [Splines](https://mlange01.github.io/MATH307/notebooks/Spline_interpolation.html)
+- [Cubic Splines](https://mlange01.github.io/MATH307/notebooks/Spline_interpolation.html)
 
 ### Homework 1
+
+The exercise of Homework 1 are given in the following pdf file: 
+
+<a href="https://mlange01.github.io/MATH307/data/homework1.pdf" target="_blank"> Homework 1 Exercises </a> <embed src="https://mlange01.github.io/MATH307/data/homework1.pdf" width="1000px" height="800px" />
 
 You will need the following notebooks for part 3 of Homework 1:
 

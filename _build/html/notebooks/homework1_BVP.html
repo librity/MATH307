@@ -1,0 +1,517 @@
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Re-using the A=PLU factorization &#8212; Applied Linear Algebra</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-dropdown.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Polynomial approximation: Equally spaced points vs. Chebyshev points" href="homework1_chebyshev.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Applied Linear Algebra</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <p class="caption">
+ <span class="caption-text">
+  Introduction
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="IntroFirstLecture.html">
+   MATH 307  –   What is it useful for
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Linear Systems
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="IntroductionToPythonPart1.html">
+   Part 1: SymPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="IntroductionToPythonPart2.html">
+   Part 2: NumPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Solving-linear-systems.html">
+   Solving Linear Systems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="NormsInPython.html">
+   Vector and Matrix Norms
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Polynomial_interpolation.html">
+   Polynomial Interpolation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Spline_interpolation.html">
+   Natural Cubic Spline Interpolation
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Homework 1
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="homework1LU.html">
+   The LU decomposition in python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="homework1_chebyshev.html">
+   Polynomial approximation: Equally spaced points vs. Chebyshev points
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Re-using the A=PLU factorization
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/notebooks/homework1_BVP.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        
+        <a class="jupyterhub-button" href="https://ubc.syzygy.ca/jupyter/hub/user-redirect/git-pull?repo=https://github.com/mlange01/MATH307&urlpath=tree/MATH307/notebooks/homework1_BVP.ipynb&branch=master"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="../_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#some-notation">
+   Some notation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vertices-boundary-the-discrete-laplacian-boundary-conditions">
+   Vertices, boundary, the discrete Laplacian, boundary conditions.
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dirichlet-problem">
+   Dirichlet problem:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-main-point">
+   The main point
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#solving-the-dirichlet-problem">
+   Solving the Dirichlet problem
+  </a>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="re-using-the-a-plu-factorization">
+<h1>Re-using the A=PLU factorization<a class="headerlink" href="#re-using-the-a-plu-factorization" title="Permalink to this headline">¶</a></h1>
+<p>In some situations we can re-use the A=PLU factorization in multiple problems. An example is solving a boundary value problem for several different boundary conditions. We describe a example of this: the discrete Dirichlet problem.</p>
+<div class="section" id="some-notation">
+<h2>Some notation<a class="headerlink" href="#some-notation" title="Permalink to this headline">¶</a></h2>
+<p>If <span class="math notranslate nohighlight">\(X\)</span> is a finite (or countably infinite) set we define
+$<span class="math notranslate nohighlight">\(
+\ell^2(X) = \{f: X\rightarrow \mathbb C : \sum_{x\in X} |f_x|^2 &lt; \infty\}
+\)</span>$</p>
+<p>Note 1: If <span class="math notranslate nohighlight">\(X\)</span> is finite then the sum in the definition always converges so <span class="math notranslate nohighlight">\(\ell^2(X)\)</span> actually contains <em>all</em> functions from <span class="math notranslate nohighlight">\(X\rightarrow \mathbb C\)</span></p>
+<p>Note 2: We can equally well consider real valued function <span class="math notranslate nohighlight">\(X\rightarrow \mathbb R\)</span></p>
+<p>Note 3: When <span class="math notranslate nohighlight">\(f,g \in \ell^2(X)\)</span> then the inner (dot) product
+$<span class="math notranslate nohighlight">\(
+\langle f, g \rangle = \sum_{x\in X} \overline f_x g_x 
+\)</span><span class="math notranslate nohighlight">\(
+is well defined (ie converges) Again obvious if \)</span>X$ is finite.</p>
+<p>Example: if <span class="math notranslate nohighlight">\(X=[0,1,2,3]\)</span> then a function <span class="math notranslate nohighlight">\(f:X\rightarrow \mathbb C\)</span> is simply an assignment of a number <span class="math notranslate nohighlight">\(f_i\)</span> to every <span class="math notranslate nohighlight">\(i\in X\)</span>, ie a vector <span class="math notranslate nohighlight">\(\begin{bmatrix}f_0\\f_1\\f_2\\f_3\\\end{bmatrix} \in \mathbb C^4\)</span></p>
+<p>If <span class="math notranslate nohighlight">\(X=X_1\cup X_2\)</span> is a disjoint untion then <span class="math notranslate nohighlight">\(\ell^2(X)\)</span> can be written as a direct sum <span class="math notranslate nohighlight">\(\ell^2(X) = \ell^2(X_1) \oplus \ell^2(X_2)\)</span>. Here we are identifying functions on <span class="math notranslate nohighlight">\(X_1\)</span> with functions on <span class="math notranslate nohighlight">\(X\)</span> which are zero away from <span class="math notranslate nohighlight">\(X_1\)</span>.</p>
+<p>Example: If <span class="math notranslate nohighlight">\(X=\{0,1,2,3\} = \{\{0,1\} \cup \{2,3\}\}\)</span> the direct sum decomposition of a vector is
+$<span class="math notranslate nohighlight">\(
+\begin{bmatrix}f_0\\f_1\\f_2\\f_3\\\end{bmatrix} = \begin{bmatrix}f_0\\f_1\\0\\0\\\end{bmatrix} + \begin{bmatrix}0\\0\\f_2\\f_3\\\end{bmatrix}
+\)</span>$</p>
+<p>We can define complementary projections <span class="math notranslate nohighlight">\(P\)</span> and <span class="math notranslate nohighlight">\(Q\)</span>, where <span class="math notranslate nohighlight">\(P:\ell^2(X)\rightarrow \ell^2(X_1)\)</span> is defined by
+$<span class="math notranslate nohighlight">\(
+(Pf)(v) = \begin{cases} f(v) &amp; v\in X_1\\ 0 &amp; v\in X_2\\\end{cases}
+\)</span><span class="math notranslate nohighlight">\(
+and \)</span>Q<span class="math notranslate nohighlight">\( is defined similarly with \)</span>X_1<span class="math notranslate nohighlight">\( and \)</span>X_2<span class="math notranslate nohighlight">\( exchanged. In the example
+\)</span><span class="math notranslate nohighlight">\(
+P : \begin{bmatrix}f_0\\f_1\\f_2\\f_3\\\end{bmatrix} \mapsto \begin{bmatrix}f_0\\f_1\\0\\0\\\end{bmatrix} \quad
+Q : \begin{bmatrix}f_0\\f_1\\f_2\\f_3\\\end{bmatrix} \mapsto \begin{bmatrix}0\\0\\f_2\\f_3\\\end{bmatrix}
+\)</span>$</p>
+<p>The projections <span class="math notranslate nohighlight">\(P\)</span> and <span class="math notranslate nohighlight">\(Q\)</span> satisfy <span class="math notranslate nohighlight">\(P+Q=I\)</span>, <span class="math notranslate nohighlight">\(P^2=P\)</span> and <span class="math notranslate nohighlight">\(Q^2 = Q\)</span>.</p>
+<p>Define <span class="math notranslate nohighlight">\(\delta_w\)</span> be the function <span class="math notranslate nohighlight">\(\delta_w(v) = \begin{cases} 1 &amp; v=w\\ 0 &amp;\hbox{otherwise}\end{cases}\)</span> Then <span class="math notranslate nohighlight">\(\{\delta_x : x\in X\}\)</span> is an orthonormal basis for <span class="math notranslate nohighlight">\(\ell^2 (X)\)</span>.</p>
+</div>
+<div class="section" id="vertices-boundary-the-discrete-laplacian-boundary-conditions">
+<h2>Vertices, boundary, the discrete Laplacian, boundary conditions.<a class="headerlink" href="#vertices-boundary-the-discrete-laplacian-boundary-conditions" title="Permalink to this headline">¶</a></h2>
+<p>Consider a graph with vertex set <span class="math notranslate nohighlight">\(V\)</span>. Here is an example.</p>
+<p><img alt="title" src="../_images/d.png" /></p>
+<p>We assume that <span class="math notranslate nohighlight">\(V=V_i \cup B\)</span> is a disjoint union of the interior points <span class="math notranslate nohighlight">\(V_i\)</span> and the boundary <span class="math notranslate nohighlight">\(B\)</span>. In the example, the boundary vertices are blue.
+Then
+$<span class="math notranslate nohighlight">\(
+\ell^2(V) = \ell^2(V_i) \oplus \ell^2(B)
+\)</span><span class="math notranslate nohighlight">\(
+We have the projections \)</span>Q:\ell^2(V)\rightarrow \ell^2(V_i)<span class="math notranslate nohighlight">\( and \)</span>P:\ell^2(V)\rightarrow \ell^2(B)$</p>
+<p>The discrete Laplacian, as an operator, or linear transformation, acting on functions <span class="math notranslate nohighlight">\(f:V\rightarrow\mathbb R\)</span>, is defined as</p>
+<div class="math notranslate nohighlight">
+\[(Lf)(v) = \sum_{w:w\sim v} \big(f(w)-f(v)\big)\]</div>
+<p>Another way of writing <span class="math notranslate nohighlight">\((Lf)(v)\)</span> is
+$<span class="math notranslate nohighlight">\((Lf)(v) = \Big(\sum_{w\sim v} f(w) \Big) - c(v)f(v),\)</span>$</p>
+<p>where <span class="math notranslate nohighlight">\(c(v)\)</span> is the number of edges joining <span class="math notranslate nohighlight">\(v\)</span>. (Aside: The first term <span class="math notranslate nohighlight">\(\sum_{w\sim v} f(w) = (Af)(v)\)</span> is the value at <span class="math notranslate nohighlight">\(v\)</span> of the adjacency operator <span class="math notranslate nohighlight">\(A\)</span> applied to <span class="math notranslate nohighlight">\(f\)</span>.)</p>
+<p>A function <span class="math notranslate nohighlight">\(f\in\ell^2(V)\)</span> is called <em>harmonic</em> if <span class="math notranslate nohighlight">\(Lf(v)=0\)</span> for all interior points <span class="math notranslate nohighlight">\(v\)</span>. For example, constant functions are harmonic. In general, <span class="math notranslate nohighlight">\(f\in\ell^2(V)\)</span> is  harmonic if <span class="math notranslate nohighlight">\(QLf=0\)</span></p>
+<p>A boundary condition is a map <span class="math notranslate nohighlight">\(b\in\ell^2(B)\)</span>. A function <span class="math notranslate nohighlight">\(f\)</span> satisfies this boundary condition if <span class="math notranslate nohighlight">\(f(v) = b(v)\)</span> for all <span class="math notranslate nohighlight">\(v\in B\)</span>. Another way of writing this is <span class="math notranslate nohighlight">\(Pf=b\)</span>.</p>
+<p>We wish to solve the following problem:</p>
+</div>
+<div class="section" id="dirichlet-problem">
+<h2>Dirichlet problem:<a class="headerlink" href="#dirichlet-problem" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><blockquote>
+<div><p><em>Given a function <span class="math notranslate nohighlight">\(b\)</span> on the boundary, find a harmonic function <span class="math notranslate nohighlight">\(f:V\rightarrow \mathbb R\)</span> that agrees with <span class="math notranslate nohighlight">\(b\)</span> on the boundary.</em></p>
+</div></blockquote>
+</div></blockquote>
+<p>To solve the Dirichlet problem we must find <span class="math notranslate nohighlight">\(f\in\ell^2(V)\)</span> such that<br />
+<span class="math notranslate nohighlight">\(QLf=0\)</span> and <span class="math notranslate nohighlight">\(Pf=b\)</span>. Inserting <span class="math notranslate nohighlight">\(I=Q+P=Q^2+P\)</span> in the first equation we find
+$<span class="math notranslate nohighlight">\(QLf = QLQ Qf + QLPf  = QLQ Qf + QLb=0.\)</span><span class="math notranslate nohighlight">\(
+So if we denote \)</span>Qf<span class="math notranslate nohighlight">\(, the restriction of \)</span>f<span class="math notranslate nohighlight">\( to the interior vertices by \)</span>f_i<span class="math notranslate nohighlight">\(, then \)</span>f_i$ solves</p>
+<div class="math notranslate nohighlight">
+\[
+QLQ f_i = -QLb
+\]</div>
+<p>Conversely, if <span class="math notranslate nohighlight">\(f_i\)</span> satisfies this equation, then <span class="math notranslate nohighlight">\(f\)</span> defined by <span class="math notranslate nohighlight">\(f(v) = \begin{cases} f_i(v)&amp; v\in V_i\\b(v) &amp; v\in B\\\end{cases}\)</span> solves the Dirichlet problem with boundary condition <span class="math notranslate nohighlight">\(b\)</span>.</p>
+</div>
+<div class="section" id="the-main-point">
+<h2>The main point<a class="headerlink" href="#the-main-point" title="Permalink to this headline">¶</a></h2>
+<p>If we want to solve the Dirichlet problem for two different boundary condtions on the same graph, then the matrix <span class="math notranslate nohighlight">\(QLQ\)</span> doesn’t change. So we can re-use the PLU decomposition.</p>
+<p>Let’s see how this works in the example graph above. To keep track of the vertices we need to label them. Here is a labelling:</p>
+<p><img alt="title" src="../_images/d2.png" /></p>
+<p>Associated to the labelling are orthonormal bases <span class="math notranslate nohighlight">\(\delta_{v_0}, \delta_{v_1}, \delta_{v_2}, \delta_{v_3}, \delta_{v_4}\)</span> for <span class="math notranslate nohighlight">\(\ell^2(V)\)</span> and <span class="math notranslate nohighlight">\(\delta_{v_0}, \delta_{v_1}, \delta_{v_4}\)</span> for <span class="math notranslate nohighlight">\(\ell^2(V_i)\)</span>. Writing the matrices for <span class="math notranslate nohighlight">\(L\)</span> and <span class="math notranslate nohighlight">\(QLQ\)</span> with respect to these bases yields
+$<span class="math notranslate nohighlight">\(
+L = \begin{bmatrix} -2 &amp; 1 &amp; 0 &amp; 0 &amp; 1\\   1&amp; -4 &amp; 1 &amp; 1 &amp; 1\\0   &amp;1 &amp;-2  &amp; 1&amp;0\\   0&amp;1&amp;1&amp;-3&amp;1\\  1 &amp;1&amp;0&amp;1&amp;-3\\\end{bmatrix}
+\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(
+QLQ = \begin{bmatrix} -2 &amp; 1 &amp; 1\\   1&amp; -4 &amp;  1\\1 &amp;1&amp;-3\\\end{bmatrix}
+\)</span>$</p>
+</div>
+<div class="section" id="solving-the-dirichlet-problem">
+<h2>Solving the Dirichlet problem<a class="headerlink" href="#solving-the-dirichlet-problem" title="Permalink to this headline">¶</a></h2>
+<p>Let’s solve the Dirichlet problem for the example graph for the boundary condition <span class="math notranslate nohighlight">\(b(v_2) = 1\)</span> and <span class="math notranslate nohighlight">\(b(v_3)=0\)</span>. The corresponding vector in <span class="math notranslate nohighlight">\(\ell^2(V)\)</span> is  <span class="math notranslate nohighlight">\(b=\begin{bmatrix}0\\0\\1\\0\\0\\\end{bmatrix}\)</span>. Then
+$<span class="math notranslate nohighlight">\(
+Lb= \begin{bmatrix}0\\1\\-2\\1\\0\\\end{bmatrix}
+\)</span><span class="math notranslate nohighlight">\(
+and
+\)</span><span class="math notranslate nohighlight">\(
+-QLb= \begin{bmatrix}0\\-1\\0\\\end{bmatrix}
+\)</span>$</p>
+<p>So must solve
+$<span class="math notranslate nohighlight">\(
+\begin{bmatrix} -2 &amp; 1 &amp; 1\\   1&amp; -4 &amp;  1\\1 &amp;1&amp;-3\\\end{bmatrix} f_i = \begin{bmatrix}0\\-1\\0\\\end{bmatrix}
+\)</span>$</p>
+<p>We could do this as follows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy.linalg</span> <span class="k">as</span> <span class="nn">la</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">]])</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">],[</span><span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">]])</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">la</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">c</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.30769231]
+ [0.38461538]
+ [0.23076923]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Instead, we get the solution via the LU factorization</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lu</span><span class="p">,</span> <span class="n">piv</span> <span class="o">=</span> <span class="n">la</span><span class="o">.</span><span class="n">lu_factor</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">la</span><span class="o">.</span><span class="n">lu_solve</span><span class="p">((</span><span class="n">lu</span><span class="p">,</span><span class="n">piv</span><span class="p">),</span><span class="n">c</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.30769231]
+ [0.38461538]
+ [0.23076923]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>The advantage is that if we now want to solve the Dirichlet problem with a new boundary condition <span class="math notranslate nohighlight">\(b(v_2) = 0\)</span> and <span class="math notranslate nohighlight">\(b(v_3)=1\)</span> we just need to compute the new right side <span class="math notranslate nohighlight">\(c2 = -QLb = \begin{bmatrix}0\\-1\\-1\\\end{bmatrix}\)</span>. We can then reuse the LU factorization:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">],[</span><span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="o">-</span><span class="mi">1</span><span class="p">]])</span>
+<span class="n">f2</span> <span class="o">=</span> <span class="n">la</span><span class="o">.</span><span class="n">lu_solve</span><span class="p">((</span><span class="n">lu</span><span class="p">,</span><span class="n">piv</span><span class="p">),</span><span class="n">c2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.69230769]
+ [0.61538462]
+ [0.76923077]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s verify that we have computed the solutions correctly.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">]])</span>
+<span class="n">Q</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
+<span class="n">h1</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">f</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">f</span><span class="p">[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">],</span><span class="n">f</span><span class="p">[</span><span class="mi">2</span><span class="p">]])</span>
+<span class="n">h2</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">f2</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">f2</span><span class="p">[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">],</span><span class="n">f2</span><span class="p">[</span><span class="mi">2</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">Q</span><span class="p">)</span><span class="nd">@L@h1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">Q</span><span class="p">)</span><span class="nd">@L@h2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[-2.77555756e-17]
+ [-8.32667268e-17]
+ [ 0.00000000e+00]]
+[[ 0.00000000e+00]
+ [-3.33066907e-16]
+ [ 0.00000000e+00]]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L</span><span class="nd">@h1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-2.77555756e-17],
+       [ 0.00000000e+00],
+       [-1.61538462e+00],
+       [ 1.61538462e+00],
+       [ 0.00000000e+00]])
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Homework problem 1:</strong> The discrete Poisson kernel is the <span class="math notranslate nohighlight">\(5\times 2\)</span> matrix <span class="math notranslate nohighlight">\(PK\)</span> such that for any boundary condtion <span class="math notranslate nohighlight">\(b_2\)</span>, <span class="math notranslate nohighlight">\(b_3\)</span>, the product <span class="math notranslate nohighlight">\(PK  \begin{bmatrix}b_2\\b_3\\\end{bmatrix}\)</span> is the solution of the Dirichlet problem with this boundary condition.
+Compute <span class="math notranslate nohighlight">\(PK\)</span> for the example above</p>
+<p><strong>Homework problem 2:</strong>
+For the graph with boundary shown here</p>
+<p><img alt="title" src="../_images/d3.png" /></p>
+<p>Compute the solution of the Dirichlet problem  with boundary values <span class="math notranslate nohighlight">\(b_0=1\)</span>, <span class="math notranslate nohighlight">\(b_1=b_2=\cdots = b_5=0\)</span> using the LU decomposition. Then reuse the decomposition to solve the Dirichlet problem  with boundary values <span class="math notranslate nohighlight">\(b_0=b_1=b_2=\cdots = b_5=1\)</span>
+and then with values <span class="math notranslate nohighlight">\(b_0= 0, b_1=1 , b_2=b_3\cdots = b_5=0\)</span>. (Actually there is an even easier way to get this last one using the symmetry. Use this to check your computed answer.)</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="homework1_chebyshev.html" title="previous page">Polynomial approximation: Equally spaced points vs. Chebyshev points</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Markus Lange<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>

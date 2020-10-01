@@ -19,9 +19,27 @@
 
 - [Introduction to Python (Part2)](https://mlange01.github.io/MATH307/notebooks/IntroductionToPythonPart2.html)
 
-- [Solving Linear Systems](https://mlange01.github.io/MATH307/notebooks/Solving-linear-systems.ipynb.html)
+- [Solving Linear Systems](https://mlange01.github.io/MATH307/notebooks/Solving-linear-systems.html)
 
+- [Norms](https://mlange01.github.io/MATH307/notebooks/NormsInPython.html)
 
+- [Polynomial Interpolation](https://mlange01.github.io/MATH307/notebooks/Polynomial_interpolation.html)
+
+- [Cubic Splines](https://mlange01.github.io/MATH307/notebooks/Spline_interpolation.html)
+
+### Homework 1
+
+The exercise of Homework 1 are given in the following pdf file: 
+
+If the embedded PDF is not displayed properly, <a href="https://mlange01.github.io/MATH307/data/homework1.pdf" target="_blank">please click here.</a> <embed src="https://mlange01.github.io/MATH307/data/homework1.pdf" width="1000px" height="800px" />
+
+You will need the following notebooks for part 3 of Homework 1:
+
+- [Homework-Part1-LU](https://mlange01.github.io/MATH307/notebooks/homework1LU.html)
+
+- [Homework-Part2-Chebyshev](https://mlange01.github.io/MATH307/notebooks/homework1_chebyshev.html)
+
+- [Homework-Part3-BVP](https://mlange01.github.io/MATH307/notebooks/homework1_BVP.html)
 
 
 ### Chapter 2 Least Squares

@@ -130,7 +130,7 @@ N.nullspace()
 
 N.columnspace()
 
-## From last time
+### From last time
 
 Last lecture we gave you some linear systems to solve at home. By now we have already seen how we can use the Sym.py library to do this with a computer. 
 
@@ -176,7 +176,7 @@ $$
 
 Use SymPy solve these exercises. 
 
-## Can we always use SymPy?
+### Can we always use SymPy?
 
 We see that we can already do a lot with SymPy. However, as was said in the beginning this library is for symbolic calculations, not numerical ones. For example 
 

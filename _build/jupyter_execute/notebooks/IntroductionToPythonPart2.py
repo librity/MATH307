@@ -89,11 +89,26 @@ print('Size:',col.size)
 
 ### Matrix Operations and Functions
 
+M = np.array([[3,4],[-1,5]])
+print(M)
+
+N = np.array([[1,2],[3,4]])
+print(N)
+
 #### Arithmetic Operations
 
 Recall that arithmetic [array operations](../scipy/numpy/#operations-and-functions) `+`, `-`, `/`, `*` and `**` are performed elementwise on NumPy arrays. Let's create a NumPy array and do some computations:
 
-M = np.array([[3,4],[-1,5]])
+N + M
+
+N-M
+
+3*M
+
+2*M - 4*N
+
+**Attention !!!**
+
 print(M)
 
 M * M
@@ -170,67 +185,8 @@ We can find the trace of a matrix using the function `numpy.trace`:
 
 np.trace(A)
 
-## Linear Algebra with SciPy
-
-The main Python package for linear algebra is the SciPy subpackage [`scipy.linalg`](https://docs.scipy.org/doc/scipy/reference/linalg.html) which builds on NumPy. Let's import that packages:
-
-import scipy.linalg as la
-
-### Inverse
-
-We can find the inverse using the function `scipy.linalg.inv`:
-
-A = np.array([[1,2],[3,4]])
-print(A)
-
-la.inv(A)
-
-### Determinant
-
-We find the determinant using the function `scipy.linalg.det`:
-
-A = np.array([[1,2],[3,4]])
-print(A)
-
-la.det(A)
-
-### Example
-
-#### Characteristic Polynomials and Cayley-Hamilton Theorem
-
-The characteristic polynomial of a 2 by 2 square matrix $A$ is
-
-$$
-p_A(\lambda) = \det(A - \lambda I) = \lambda^2 - \mathrm{tr}(A) \lambda + \mathrm{det}(A)
-$$
-
-The [Cayley-Hamilton Theorem](https://en.wikipedia.org/wiki/Cayley%E2%80%93Hamilton_theorem) states that any square matrix satisfies its characteristic polynomial. For a matrix $A$ of size 2, this means that
-
-$$
-p_A(A) = A^2 - \mathrm{tr}(A) A + \mathrm{det}(A) I = 0
-$$
-
-Let's verify the Cayley-Hamilton Theorem for a few different matrices.
-
-print(A)
-
-trace_A = np.trace(A)
-det_A = la.det(A)
-I = np.eye(2)
-A @ A - trace_A * A + det_A * I
-
-Let's do this again for some random matrices:
-
-N = np.random.randint(0,10,[2,2])
-print(N)
-
-trace_N = np.trace(N)
-det_N = la.det(N)
-I = np.eye(2)
-N @ N - trace_N * N + det_N * I
-
-Next time we will see how to solve a matrix equation $Ax = b$ in NumPy and SciPy
-
 ### Exercise
 
 Compute the matrix equation $AB + 2B^2 - I$ for matrices $A = \begin{bmatrix} 3 & 4 \\\ -1 & 2 \end{bmatrix}$ and $B = \begin{bmatrix} 5 & 2 \\\ 8 & -3 \end{bmatrix}$.              
+
+**Now lets see how we can solve a linear systems with the help of Numpy and the linear algebra subpackage of SciPy** 

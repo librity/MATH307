@@ -1,11 +1,14 @@
-# Solving Linear Systems
+## Solving Linear Systems
+
+The main Python package for linear algebra is the SciPy subpackage [`scipy.linalg`](https://docs.scipy.org/doc/scipy/reference/linalg.html) which builds on NumPy. Let's import that packages:
+
+import scipy.linalg as la
 
 import numpy as np
 import matplotlib.pyplot as plt
-import scipy.linalg as la
 %matplotlib inline
 
-## Linear Systems
+### Linear Systems
 
 A [linear system of equations](https://en.wikipedia.org/wiki/System_of_linear_equations) is a collection of linear equations
 
@@ -35,11 +38,11 @@ b_0 \\\ b_1 \\\ \vdots \\\ b_m
 \end{bmatrix} 
 $$
 
-## Gaussian elimination
+### Gaussian elimination
 
 The general procedure to solve a linear system of equation is called [Gaussian elimination](https://en.wikipedia.org/wiki/Gaussian_elimination). The idea is to perform elementary row operations to reduce the system to its row echelon form and then solve.
 
-### Elementary Row Operations
+#### Elementary Row Operations
 
 [Elementary row operations](https://en.wikipedia.org/wiki/Elementary_matrix#Elementary_row_operations) include:
 
@@ -102,7 +105,7 @@ print(E3)
 
 E3 @ A
 
-### Implementation
+#### Implementation
 
 Let's write function to implement the elementary row operations. First of all, let's write a function called `add_rows` which takes input parameters $A$, $k$, $i$ and $j$ and returns the NumPy array resulting from adding $k$ times row $j$ to row $i$ in the matrix $A$. If $i=j$, then let's say that the function scales row $i$ by $k+1$ since this would be the result of $k$ times row $i$ added to row $i$.
 
@@ -161,9 +164,9 @@ print(A)
 
 switch_rows(A,0,1)
 
-## Examples
+### Examples
 
-### Find the Inverse
+#### Find the Inverse
 
 Let's apply our functions to the augmented matrix $[M \ | \ I]$ to find the inverse of the matrix $M$:
 
@@ -215,7 +218,7 @@ Success! We can see the result more clearly if we round to 15 decimal places:
 
 np.round(result,15)
 
-### Solve a System
+#### Solve a System
 
 Let's use our functions to perform Gaussian elimination and solve a linear system of equations $A \mathbf{x} = \mathbf{b}$.
 
@@ -298,7 +301,7 @@ Or, we can do it the easy way...
 x = la.solve(A,b)
 print(x)
 
-## `scipy.linalg.solve`
+### `scipy.linalg.solve`
 
 We are mostly interested in linear systems $A \mathbf{x} = \mathbf{b}$ where there is a unique solution $\mathbf{x}$. This is the case when $A$ is a square matrix ($m=n$) and $\mathrm{det}(A) \not= 0$. To solve such a system, we can use the function [`scipy.linalg.solve`](https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.solve.html).
 
@@ -329,7 +332,7 @@ b3 = np.array([[2,2],[0,1]])
 x3 = la.solve(A,b3)
 print(x3)
 
-### Simple Example
+#### Simple Example
 
 Let's compute the solution of the system of equations
 
@@ -365,7 +368,7 @@ print(x)
 
 We get the same result. Success!
 
-### Inverse or Solve
+#### Inverse or Solve
 
 It's a bad idea to use the inverse $A^{-1}$ to solve $A \mathbf{x} = \mathbf{b}$ if $A$ is large. It's too computationally expensive. Let's create a large random matrix $A$ and vector $\mathbf{b}$ and compute the solution $\mathbf{x}$ in 2 ways:
 
@@ -391,7 +394,7 @@ x = la.inv(A) @ b
 
 Solving with `scipy.linalg.solve` is about twice as fast!
 
-## Exercises
+### Exercise
 
 Try the functions 'add_row', 'scale_row' and 'switch_row' for yourself and find the solution for the following system $Ax = b$ with 
 

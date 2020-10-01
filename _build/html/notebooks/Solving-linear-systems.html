@@ -38,6 +38,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Vector and Matrix Norms" href="NormsInPython.html" />
     <link rel="prev" title="Part 2: NumPy" href="IntroductionToPythonPart2.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -93,28 +94,50 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="IntroductionToPythonPart1.html#from-last-time">
-   From last time
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="IntroductionToPythonPart1.html#can-we-always-use-sympy">
-   Can we always use SymPy?
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="IntroductionToPythonPart2.html">
    Part 2: NumPy
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="IntroductionToPythonPart2.html#linear-algebra-with-scipy">
-   Linear Algebra with SciPy
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Solving Linear Systems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="NormsInPython.html">
+   Vector and Matrix Norms
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Polynomial_interpolation.html">
+   Polynomial Interpolation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Spline_interpolation.html">
+   Natural Cubic Spline Interpolation
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Homework 1
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="homework1LU.html">
+   The LU decomposition in python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="homework1_chebyshev.html">
+   Polynomial approximation: Equally spaced points vs. Chebyshev points
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="homework1_BVP.html">
+   Re-using the A=PLU factorization
   </a>
  </li>
 </ul>
@@ -265,8 +288,8 @@
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercises">
-   Exercises
+  <a class="reference internal nav-link" href="#exercise">
+   Exercise
   </a>
  </li>
 </ul>
@@ -281,11 +304,18 @@
                 
   <div class="section" id="solving-linear-systems">
 <h1>Solving Linear Systems<a class="headerlink" href="#solving-linear-systems" title="Permalink to this headline">¶</a></h1>
+<p>The main Python package for linear algebra is the SciPy subpackage <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/linalg.html"><code class="docutils literal notranslate"><span class="pre">scipy.linalg</span></code></a> which builds on NumPy. Let’s import that packages:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scipy.linalg</span> <span class="k">as</span> <span class="nn">la</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">scipy.linalg</span> <span class="k">as</span> <span class="nn">la</span>
 <span class="o">%</span><span class="k">matplotlib</span> inline
 </pre></div>
 </div>
@@ -618,9 +648,6 @@ E^3 = \begin{bmatrix}
  [ 1 -1  0]]
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -852,6 +879,9 @@ E^3 = \begin{bmatrix}
  [ 0.00000000e+00  0.00000000e+00  1.00000000e+00]]
 </pre></div>
 </div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
 </div>
 </div>
 <p>Success! We can see the result more clearly if we round to 15 decimal places:</p>
@@ -892,7 +922,7 @@ x_1 &amp;-&amp; 5x_2 &amp;+&amp; 8x_3 &amp;=&amp; 5 \\
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">36</span><span class="o">-</span><span class="mi">1</span><span class="n">a19a4a092db</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">37</span><span class="o">-</span><span class="mi">1</span><span class="n">a19a4a092db</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">sympy</span> <span class="k">as</span> <span class="nn">sy</span>
 
 <span class="ne">ModuleNotFoundError</span>: No module named &#39;sympy&#39;
@@ -1327,9 +1357,9 @@ x + y &amp;= 1
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.35754719, 0.63135432, 0.6572258 ],
-       [0.18450506, 0.14639832, 0.23528745],
-       [0.27576474, 0.46264005, 0.26589724]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.49971679, 0.69765468, 0.78702447],
+       [0.59025559, 0.1889115 , 0.87273973],
+       [0.38341954, 0.3818554 , 0.26702688]])
 </pre></div>
 </div>
 </div>
@@ -1342,10 +1372,10 @@ x + y &amp;= 1
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.82726751],
-       [0.96946096],
-       [0.31351176],
-       [0.63757837]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.61028589],
+       [0.47186846],
+       [0.10596252],
+       [0.53912939]])
 </pre></div>
 </div>
 </div>
@@ -1359,7 +1389,7 @@ x + y &amp;= 1
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.77 s ± 509 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>40.4 ms ± 15.2 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
 </pre></div>
 </div>
 </div>
@@ -1372,7 +1402,7 @@ x + y &amp;= 1
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.46 s ± 2.04 s per loop (mean ± std. dev. of 7 runs, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>189 ms ± 7.19 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
 </pre></div>
 </div>
 </div>
@@ -1380,8 +1410,8 @@ x + y &amp;= 1
 <p>Solving with <code class="docutils literal notranslate"><span class="pre">scipy.linalg.solve</span></code> is about twice as fast!</p>
 </div>
 </div>
-<div class="section" id="exercises">
-<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="exercise">
+<h2>Exercise<a class="headerlink" href="#exercise" title="Permalink to this headline">¶</a></h2>
 <p>Try the functions ‘add_row’, ‘scale_row’ and ‘switch_row’ for yourself and find the solution for the following system <span class="math notranslate nohighlight">\(Ax = b\)</span> with</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -1426,6 +1456,7 @@ b = \begin{bmatrix}
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="IntroductionToPythonPart2.html" title="previous page">Part 2: NumPy</a>
+    <a class='right-next' id="next-link" href="NormsInPython.html" title="next page">Vector and Matrix Norms</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
