@@ -272,7 +272,7 @@ A=\begin{bmatrix}
 and run lu_factor</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
 <span class="n">lu</span><span class="p">,</span> <span class="n">piv</span> <span class="o">=</span> <span class="n">la</span><span class="o">.</span><span class="n">lu_factor</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">lu</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">piv</span><span class="p">)</span>
@@ -280,9 +280,9 @@ and run lu_factor</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[3.         2.         3.        ]
- [0.33333333 2.33333333 0.        ]
- [0.33333333 0.14285714 0.        ]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 3.          2.          3.        ]
+ [ 0.33333333 -0.66666667  0.        ]
+ [ 0.33333333 -0.5         0.        ]]
 [0 2 2]
 </pre></div>
 </div>
