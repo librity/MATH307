@@ -11,6 +11,7 @@
   - file: notebooks/Solving-linear-systems.ipynb
   - file: notebooks/NormsInPython.ipynb
   - file: notebooks/Polynomial_interpolation.ipynb
+  - file: notebooks/Spline_interpolation.ipynb
   
 - part: Homework 1
   chapters:
