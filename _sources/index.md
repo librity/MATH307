@@ -31,7 +31,7 @@
 
 The exercise of Homework 1 are given in the following pdf file: 
 
-<a href="https://mlange01.github.io/MATH307/data/homework1.pdf" target="_blank"> Homework 1 Exercises </a> <embed src="https://mlange01.github.io/MATH307/data/homework1.pdf" width="1000px" height="800px" />
+<a href="https://github.com/mlange01/MATH307/blob/master/data/homework1.pdf" target="_blank"> Homework 1 Exercises </a> <embed src="https://github.com/mlange01/MATH307/blob/master/data/homework1.pdf" width="1000px" height="800px" />
 
 You will need the following notebooks for part 3 of Homework 1:
 
