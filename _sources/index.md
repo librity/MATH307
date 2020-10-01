@@ -28,9 +28,6 @@
 - [Splines](https://mlange01.github.io/MATH307/notebooks/Spline_interpolation.html)
 
 ### Homework 1
-The exercise of Homework 1 are given in the following pdf file: 
-
-- [Homework 1 Exercise](https://mlange01.github.io/MATH307/data/homework1.pdf)
 
 You will need the following notebooks for part 3 of Homework 1:
 
