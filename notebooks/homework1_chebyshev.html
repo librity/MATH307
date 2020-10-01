@@ -270,11 +270,12 @@
                 
   <div class="section" id="polynomial-approximation-equally-spaced-points-vs-chebyshev-points">
 <h1>Polynomial approximation: Equally spaced points vs. Chebyshev points<a class="headerlink" href="#polynomial-approximation-equally-spaced-points-vs-chebyshev-points" title="Permalink to this headline">¶</a></h1>
-<p>Suppose we want to approximate <span class="math notranslate nohighlight">\(f(x)\)</span> with a polynomial <span class="math notranslate nohighlight">\(p(x)=a+0 + a_1 x + \cdots a_n x^n\)</span>  for <span class="math notranslate nohighlight">\(x\in [-1,1]\)</span> The simplest thing to try is to take <span class="math notranslate nohighlight">\(N\)</span> equally spaced points <span class="math notranslate nohighlight">\(x_k\)</span>, <span class="math notranslate nohighlight">\(k=1 \ldots N\)</span> and solve the system of linear equations
+<p>Suppose we want to approximate <span class="math notranslate nohighlight">\(f(x)\)</span> with a polynomial $<span class="math notranslate nohighlight">\(p(x)=a_0 + a_1 x + \cdots a_n x^n\)</span><span class="math notranslate nohighlight">\(  for \)</span>x\in [-1,1]$.</p>
+<p>The simplest thing to try is to take <span class="math notranslate nohighlight">\(N\)</span> equally spaced points <span class="math notranslate nohighlight">\(x_k\)</span>, <span class="math notranslate nohighlight">\(k=1, \ldots, N\)</span> and solve the system of linear equations
 $<span class="math notranslate nohighlight">\(
-p(x_k) = f(x_k) \quad k=0..N
+p(x_k) = f(x_k)\,, \quad k=1,\ldots,N
 \)</span><span class="math notranslate nohighlight">\(
-for \)</span>a_0,a_1, \ldots <span class="math notranslate nohighlight">\(a_N\)</span>.</p>
+for \)</span>a_0,a_1, \ldots a_N$.</p>
 <p>The equations can be written <span class="math notranslate nohighlight">\(A a = b\)</span> where <span class="math notranslate nohighlight">\(A\)</span> is the Vandermonde matrix
 $<span class="math notranslate nohighlight">\(
 A=\begin{bmatrix}
@@ -291,7 +292,7 @@ a =\begin{bmatrix}a_0\\a_1\\\vdots\\a_N\\\end{bmatrix}
 b =\begin{bmatrix}f(x_0)\\f(x_1)\\\vdots \\f(x_N)\\\end{bmatrix}
 \end{split}\]</div>
 <p>We can solve these equations for <span class="math notranslate nohighlight">\(a\)</span> and compare the resulting polynomial <span class="math notranslate nohighlight">\(p(x)\)</span> with <span class="math notranslate nohighlight">\(f(x)\)</span>.</p>
-<p>It turns out, however, that it may be better to use points that are not equally spaced. In some sense (made precise <a class="reference external" href="https://people.maths.ox.ac.uk/trefethen/ATAP/">here</a> ) the points <span class="math notranslate nohighlight">\(x_k = \cos(\pi(2k-1)/(2N))\)</span>, <span class="math notranslate nohighlight">\(k=1,\ldots N\)</span> (called Chebyshev nodes) are optimal.</p>
+<p>It turns out, however, that it may be better to use points that are not equally spaced. In some sense (made precise <a class="reference external" href="https://people.maths.ox.ac.uk/trefethen/ATAP/">here</a> ) the points <span class="math notranslate nohighlight">\(x_k = \cos(\frac{2k-1}{2N}\pi)\)</span>, <span class="math notranslate nohighlight">\(k=1,\ldots, N\)</span> (called Chebyshev nodes) are optimal.</p>
 <div class="section" id="homework-question">
 <h2>Homework question:<a class="headerlink" href="#homework-question" title="Permalink to this headline">¶</a></h2>
 <p><strong>The following pieces of python code compute and graph interpolating polynomials for <span class="math notranslate nohighlight">\(N\)</span> equally spaced points (xe) and for <span class="math notranslate nohighlight">\(N\)</span> Chebyshev points (xc). Run this code for various values of <span class="math notranslate nohighlight">\(N\)</span> and describe what happens when <span class="math notranslate nohighlight">\(N\)</span> increases. You may want to compare the condition numbers of the Vandermonde matrices for the equally spaced case <span class="math notranslate nohighlight">\(AE\)</span> and the Chebyshev case. You can also try changing <span class="math notranslate nohighlight">\(f\)</span>. Your aim should be to decide whether (at least in certain situations) it is better to take the Chebyshev points</strong></p>
@@ -335,21 +336,7 @@ b =\begin{bmatrix}f(x_0)\\f(x_1)\\\vdots \\f(x_N)\\\end{bmatrix}
 <img alt="../_images/homework1_chebyshev_1_1.png" src="../_images/homework1_chebyshev_1_1.png" />
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Here</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">code</span> <span class="k">for</span> <span class="n">the</span> <span class="n">Chebyshev</span> <span class="n">case</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;&lt;ipython-input-2-6fcd48c93a63&gt;&quot;</span><span class="gt">, line </span><span class="mi">1</span>
-    <span class="n">Here</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">code</span> <span class="k">for</span> <span class="n">the</span> <span class="n">Chebyshev</span> <span class="n">case</span>
-                   <span class="o">^</span>
-<span class="ne">SyntaxError</span>: invalid syntax
-</pre></div>
-</div>
-</div>
-</div>
+<p>Here is the code for the Chebyshev case</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -387,7 +374,7 @@ b =\begin{bmatrix}f(x_0)\\f(x_1)\\\vdots \\f(x_N)\\\end{bmatrix}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1104808.529378666
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1104808.5293390437
 </pre></div>
 </div>
 <img alt="../_images/homework1_chebyshev_3_1.png" src="../_images/homework1_chebyshev_3_1.png" />

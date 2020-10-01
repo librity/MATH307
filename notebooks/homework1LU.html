@@ -268,27 +268,13 @@ and <a class="reference external" href="https://docs.scipy.org/doc/scipy/referen
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>Start with the matrix
-$$
+<p>Start with the matrix
+$<span class="math notranslate nohighlight">\(
 A=\begin{bmatrix}
 3&amp;2&amp;3\\1&amp;1&amp;1\\1&amp;0&amp;1\\
 \end{bmatrix}
-$$
-and run lu_factor
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;&lt;ipython-input-2-3206bd0d1722&gt;&quot;</span><span class="gt">, line </span><span class="mi">1</span>
-    <span class="n">Start</span> <span class="k">with</span> <span class="n">the</span> <span class="n">matrix</span>
-             <span class="o">^</span>
-<span class="ne">SyntaxError</span>: invalid syntax
-</pre></div>
-</div>
-</div>
-</div>
+\)</span>$
+and run lu_factor</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
@@ -299,18 +285,22 @@ and run lu_factor
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[3.00000000e+00 2.00000000e+00 3.00000000e+00]
- [3.33333333e-01 2.33333333e+00 5.55111512e-17]
- [3.33333333e-01 1.42857143e-01 4.75809868e-17]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[3.         2.         3.        ]
+ [0.33333333 2.33333333 0.        ]
+ [0.33333333 0.14285714 0.        ]]
 [0 2 2]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/ipykernel_launcher.py:2: LinAlgWarning: Diagonal number 3 is exactly zero. Singular matrix.
+  
 </pre></div>
 </div>
 </div>
 </div>
-<p>QUESTION 1 Read the documentation and explain how to recover <span class="math notranslate nohighlight">\(A\)</span> from the output of lu_factor(A). Illustrate with the example <span class="math notranslate nohighlight">\(A=A=\begin{bmatrix}
+<p><strong>QUESTION 1</strong>: Read the documentation and explain how to recover <span class="math notranslate nohighlight">\(A\)</span> from the output of lu_factor(A). Illustrate with the example <span class="math notranslate nohighlight">\(A=A=\begin{bmatrix}
 3&amp;2&amp;3\\1&amp;1&amp;1\\1&amp;0&amp;1\\
 \end{bmatrix}\)</span></p>
-<p>QUESTION 2 To solve <span class="math notranslate nohighlight">\(Ax=b\)</span> we can use</p>
+<p><strong>QUESTION 2</strong>: To solve <span class="math notranslate nohighlight">\(Ax=b\)</span> we can use</p>
 <p>(1)
 x=la.solve(A,b)</p>
 <p>Or, we can use the LU factorization</p>

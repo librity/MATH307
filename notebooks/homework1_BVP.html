@@ -312,7 +312,7 @@ $<span class="math notranslate nohighlight">\(
 is well defined (ie converges) Again obvious if \)</span>X$ is finite.</p>
 <p>Example: if <span class="math notranslate nohighlight">\(X=[0,1,2,3]\)</span> then a function <span class="math notranslate nohighlight">\(f:X\rightarrow \mathbb C\)</span> is simply an assignment of a number <span class="math notranslate nohighlight">\(f_i\)</span> to every <span class="math notranslate nohighlight">\(i\in X\)</span>, ie a vector <span class="math notranslate nohighlight">\(\begin{bmatrix}f_0\\f_1\\f_2\\f_3\\\end{bmatrix} \in \mathbb C^4\)</span></p>
 <p>If <span class="math notranslate nohighlight">\(X=X_1\cup X_2\)</span> is a disjoint untion then <span class="math notranslate nohighlight">\(\ell^2(X)\)</span> can be written as a direct sum <span class="math notranslate nohighlight">\(\ell^2(X) = \ell^2(X_1) \oplus \ell^2(X_2)\)</span>. Here we are identifying functions on <span class="math notranslate nohighlight">\(X_1\)</span> with functions on <span class="math notranslate nohighlight">\(X\)</span> which are zero away from <span class="math notranslate nohighlight">\(X_1\)</span>.</p>
-<p>Example: If <span class="math notranslate nohighlight">\(X=\{0,1,2,3\} = \{\{0,1\} \cup \{\{2,3\}\}\)</span> the direct sum decomposition of a vector is
+<p>Example: If <span class="math notranslate nohighlight">\(X=\{0,1,2,3\} = \{\{0,1\} \cup \{2,3\}\}\)</span> the direct sum decomposition of a vector is
 $<span class="math notranslate nohighlight">\(
 \begin{bmatrix}f_0\\f_1\\f_2\\f_3\\\end{bmatrix} = \begin{bmatrix}f_0\\f_1\\0\\0\\\end{bmatrix} + \begin{bmatrix}0\\0\\f_2\\f_3\\\end{bmatrix}
 \)</span>$</p>
@@ -432,7 +432,7 @@ $<span class="math notranslate nohighlight">\(
 </div>
 </div>
 </div>
-<p>The advantage is that if we now want to solve the Dirichlet problem with a new boundary condition <span class="math notranslate nohighlight">\(b(v_2) = 1\)</span> and <span class="math notranslate nohighlight">\(b(v_3)=0\)</span> we just need to compute the new right side <span class="math notranslate nohighlight">\(c2 = -QLb = \begin{bmatrix}0\\-1\\-1\\\end{bmatrix}\)</span>. We can then reuse the LU factorization:</p>
+<p>The advantage is that if we now want to solve the Dirichlet problem with a new boundary condition <span class="math notranslate nohighlight">\(b(v_2) = 0\)</span> and <span class="math notranslate nohighlight">\(b(v_3)=1\)</span> we just need to compute the new right side <span class="math notranslate nohighlight">\(c2 = -QLb = \begin{bmatrix}0\\-1\\-1\\\end{bmatrix}\)</span>. We can then reuse the LU factorization:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">],[</span><span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="o">-</span><span class="mi">1</span><span class="p">]])</span>
