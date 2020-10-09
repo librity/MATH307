@@ -43,6 +43,11 @@ You will need the following notebooks for part 3 of Homework 1:
 - [Homework-Part3-BVP](https://mlange01.github.io/MATH307/notebooks/homework1_BVP.html)
 
 
+### Useful Python for Quiz 2
+
+- [Python-for-Quiz2](https://mlange01.github.io/MATH307/notebooks/pythonforquiz2.html)
+
+
 ### Chapter 2 Least Squares
 
 ### Chapter 3 Eigenvalues Problems

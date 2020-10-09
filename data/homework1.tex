@@ -1,0 +1,126 @@
+\input ../../../texinputs/latexdefs
+\standardpackages
+\usepackage[utf8]{inputenc}
+\parindent = 0pt
+
+\begin{document}
+
+\begin{center}
+{\normalfont\Large\bfseries Math 307 Homework 1  due  Oct 14 }
+\end{center}
+\bigskip\bigskip
+
+\section{Norms and Condition Numbers}
+
+When $1\le p < \infty$, we defined the $p$ norm for vectors $\xx = [x_1, x_2, \ldots, x_n]$
+to be
+$$
+\|\xx\|_p = \left(\sum_{i=1}^n |x_i|^p\right)^{1/p}.
+$$
+When $p=\infty$ we define
+$$
+\|\xx\|_\infty =\max\{|x_1|,\ldots, |x_n|\}
+$$
+\bigskip
+\hrule
+\bigskip
+1. Show  that $\|\xx\|_\infty = \lim_{p\rightarrow\infty}\|\xx\|_p$.
+
+2. Use the Cauchy Schwarz inequality
+$$
+|\yy^T \xx| \le \|\xx\|_2\|\yy\|_2
+$$
+to show that 
+$$
+\|\xx\|_2 = \max_{\yy\ne 0}\frac{ |\yy^T \xx|}{\|\yy\|_2}
+$$
+
+
+\bigskip
+\hrule
+\bigskip
+
+The generalization of the Cauchy-Schwarz inequality to $p$ norms is called the 
+Hölder inequality. 
+
+
+ To state the general case, define the conjugate exponent $q$ to $p$ so that $$\frac{1}{p} + \frac{1}{q} = 1.$$
+ 
+ Then Hölder's inequality states
+
+$$
+|\yy^T \xx| \le \|\xx\|_p\|\yy\|_q
+$$
+
+\bigskip
+\bigskip
+\hrule
+\bigskip
+
+\vfill\eject
+
+3. Prove the special case
+
+$$
+|\yy^T \xx| \le \|\xx\|_\infty\|\yy\|_1
+$$
+
+ 
+\hrule
+\bigskip
+4. Suppose you are not sure if this is true, and before sinking a lot of time into proving it, you decide to test the inequality on a bunch of random vectors in $\mathbb R^5$ using python.
+Show how you would do that for $p=3$.
+
+\bigskip
+\hrule
+\bigskip
+
+We defined the matrix norm to be
+$$
+\|A\| = \max_{\xx\ne 0} \frac{\|A\xx\|}{\|\xx\|}.
+$$
+
+\bigskip
+\hrule
+\bigskip
+5. Show that for a diagonal matrix  $A=\begin{bmatrix}\lambda_1&0&0\\0&\lambda_2&0\\0&0&\lambda_3\\\end{bmatrix}$ the matrix norm is equal to
+$$
+\|A\| = \max\{|\lambda_1|,|\lambda_2|,|\lambda_3|\}
+$$
+\bigskip
+Based on this resutl you might guess that 
+$$
+\|A\| = \max\{  | \lambda|  :  \lambda \in \hbox{eigenvalues}(A)\}
+$$
+6.  Use python to show that this is not correct, but might be for {\it real, symmetric} matrices $A$
+\bigskip
+\hrule
+\bigskip
+We will see later in the course that for a real matrix $A$, $\|A\|^2$ is the largest eigenvalue of $A^TA$. 
+\bigskip
+\hrule
+\bigskip
+7. Use this to find a formula  for the norm of any $2\times 2$ matrix. 
+\bigskip\bigskip
+\hrule
+\bigskip
+
+
+\section{Balancing chemical reactions}
+
+8. Read section 1.6 in  Keith Nicholson's text and do problems 1.6.3 and 1.6.4.
+\bigskip
+
+\section{Jupyter notebook problems}
+9--14. There are 3 Jupyter notebooks with problems: Do these five problems in the notebooks, highlighting your solutions. 
+\bigskip
+
+a. homework1LU.ipynb  (2 problems)
+\bigskip
+
+b. homework1\_chebyshev.ipynb (1 long answer problem)
+\bigskip
+
+c. homework1\_BVP.ipynb together with 3 files d.png, d2.png and d3.png to be placed in a subdirectory called img  (2 problems)
+
+\end{document}

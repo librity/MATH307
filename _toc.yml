@@ -19,4 +19,7 @@
   - file: notebooks/homework1_chebyshev.ipynb
   - file: notebooks/homework1_BVP.ipynb
   
+- part: Quiz 2
+  chapters: 
+  - file: notebooks/pythonforquiz2
 
