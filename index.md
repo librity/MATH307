@@ -50,6 +50,10 @@ You will need the following notebooks for part 3 of Homework 1:
 
 ### Chapter 2 Least Squares
 
+- [QR-DecompositionWithPython](https://mlange01.github.io/MATH307/notebooks/QR-DecompositionWithPython.html)
+
+- [Least_squares_regression](https://mlange01.github.io/MATH307/notebooks/Least_squares_regression.html)
+
 ### Chapter 3 Eigenvalues Problems
 
 ### Chapter 4 Discret Fourier Transform 
