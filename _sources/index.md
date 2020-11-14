@@ -56,5 +56,9 @@ You will need the following notebooks for part 3 of Homework 1:
 
 ### Chapter 3 Eigenvalues Problems
 
+- [PrincipalCompontentAnalysis](https://mlange01.github.io/MATH307/notebooks/PrincipalCompontentAnalysis.html)
+
+- [Deblurring Images](https://mlange01.github.io/MATH307/notebooks/Deblurring_images.html)
+
 ### Chapter 4 Discret Fourier Transform 
 
