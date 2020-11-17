@@ -21,15 +21,17 @@
   
 - part: Quiz 2
   chapters: 
-  - file: notebooks/pythonforquiz2
+  - file: notebooks/pythonforquiz2.ipynb
   
 - part: Least Squares
   chapters:
-  - file: notebooks/QR-DecompositionWithPython
-  - file: notebooks/Least_squares_regression
+  - file: notebooks/QR-DecompositionWithPython.ipynb
+  - file: notebooks/Least_squares_regression.ipynb
   
 - part: Eigenvalues-Eigenvectors
   chapters: 
-  - file: notebooks/PrincipalComponentAnalysis
-  - file: notebooks/Deblurring-images
+  - file: notebooks/PrincipalComponentAnalysis.ipynb
+  - file: notebooks/Deblurring-images.ipynb
+  - file: notebooks/PowerMethod.ipynb
+  
 
