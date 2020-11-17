@@ -34,4 +34,8 @@
   - file: notebooks/Deblurring-images.ipynb
   - file: notebooks/PowerMethod.ipynb
   
+- part: Homework 2
+  chapters:
+  - file: notebooks/homework2.ipynb
+  
 

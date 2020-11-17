@@ -62,5 +62,15 @@ You will need the following notebooks for part 3 of Homework 1:
 
 - [PowerMethod](https://mlange01.github.io/MATH307/notebooks/PowerMethod.html)
 
+### Homework 2
+
+The Homework 2 has two parts. 
+
+- <a href="https://nbviewer.jupyter.org/github/mlange01/MATH307/blob/master/data/homework2.pdf" target="_blank"> Part 1 (handwritten part) </a> 
+<!-- <embed src="https://nbviewer.jupyter.org/github/mlange01/MATH307/blob/master/data/homework2.pdf" width="1000px" height="800px" /> -->
+
+- [Part 2 (pyhton part)](https://mlange01.github.io/MATH307/notebooks/homework2.html)
+
+
 ### Chapter 4 Discret Fourier Transform 
 
