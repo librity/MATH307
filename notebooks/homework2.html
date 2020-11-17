@@ -1,0 +1,985 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MATH 307 Homework 2 (Part 2) &#8212; Applied Linear Algebra</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Computing Eigenvalues" href="PowerMethod.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Applied Linear Algebra</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <p class="caption collapsible-parent">
+ <span class="caption-text">
+  Introduction
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="IntroFirstLecture.html">
+   MATH 307  –   What is it useful for
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Linear Systems
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="IntroductionToPythonPart1.html">
+   MATH 307   Applications of Linear Algebra
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="IntroductionToPythonPart2.html">
+   Part 2: NumPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Solving-linear-systems.html">
+   Solving Linear Systems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="NormsInPython.html">
+   Vector and Matrix Norms
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Polynomial_interpolation.html">
+   Polynomial Interpolation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Spline_interpolation.html">
+   Natural Cubic Spline Interpolation
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Homework 1
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="homework1LU.html">
+   The LU decomposition in python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="homework1_chebyshev.html">
+   Polynomial approximation: Equally spaced points vs. Chebyshev points
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="homework1_BVP.html">
+   Re-using the A=PLU factorization
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Quiz 2
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="pythonforquiz2.html">
+   How much python do I need to know for Quiz 2?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="pythonforquiz2.html#finite-differnce-equations-for-boundary-values-problems-with-a-parameter">
+   Finite differnce equations for boundary values problems with a parameter.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="pythonforquiz2.html#python-procedures-to-understand-coming-in-to-the-quizz">
+   python procedures to understand coming in to the quizz
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Least Squares
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="QR-DecompositionWithPython.html">
+   QR Decomposition
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Least_squares_regression.html">
+   Fitting Models to Data
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Eigenvalues-Eigenvectors
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="PowerMethod.html">
+   Computing Eigenvalues
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Homework 2
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   MATH 307 Homework 2 (Part 2)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="#exercise-2-svd-of-toeplitz-matrices">
+   Exercise 2: SVD of Toeplitz matrices
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/notebooks/homework2.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        
+        <a class="jupyterhub-button" href="https://ubc.syzygy.ca/jupyter/hub/user-redirect/git-pull?repo=https://github.com/mlange01/MATH307&urlpath=tree/MATH307/notebooks/homework2.ipynb&branch=master"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="../_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   MATH 307 Homework 2 (Part 2)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#instructions">
+     Instructions
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercise-1-principal-component-analysis">
+     Exercise 1: Principal Component Analysis
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise-2-svd-of-toeplitz-matrices">
+   Exercise 2: SVD of Toeplitz matrices
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercise-3-pagerank">
+     Exercise 3: PageRank
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="math-307-homework-2-part-2">
+<h1>MATH 307 Homework 2 (Part 2)<a class="headerlink" href="#math-307-homework-2-part-2" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="instructions">
+<h2>Instructions<a class="headerlink" href="#instructions" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>There are 3 exercises and 35 total points.</p></li>
+<li><p>Write your solutions in the cells below.</p></li>
+<li><p>You may work on these problems with others but you must write your solutions on your own.</p></li>
+<li><p>Execute the test cells to verify that your solutions pass.</p></li>
+<li><p><strong>Grading includes hidden tests!</strong> Your solution may not be completely correct even if it passes all tests below.</p></li>
+<li><p>Make sure your notebook executes correctly in order from top to bottom.</p></li>
+<li><p>Submit this notebook to Canvas.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy.linalg</span> <span class="k">as</span> <span class="nn">la</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span>
+<span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="exercise-1-principal-component-analysis">
+<h2>Exercise 1: Principal Component Analysis<a class="headerlink" href="#exercise-1-principal-component-analysis" title="Permalink to this headline">¶</a></h2>
+<p>The following code imports the digits dataset from <a class="reference external" href="https://scikit-learn.org/stable/">sklearn</a> and selects the subset of the data correpsonding to the digit <code class="docutils literal notranslate"><span class="pre">9</span></code>.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>data = datasets.load_digits()
+X = data[&#39;data&#39;]
+y = data[&#39;target&#39;]
+X9 = X[y == 9] # This line selects the rows corresponding to 9s
+</pre></div>
+</div>
+<p>(a) Copy, paste and modify the code above to find the first weight vector for the data consisting of the digit <code class="docutils literal notranslate"><span class="pre">1</span></code>. Use the code from <a class="reference external" href="https://mlange01.github.io/MATH307/notebooks/PrincipalCompontentAnalysis.html">MATH 307 notebook on PCA</a>. Reshape the first weight vector as a 8 by 8 matrix and save the result as <code class="docutils literal notranslate"><span class="pre">w1</span></code>.</p>
+<p>Verify your weight vector looks like a <code class="docutils literal notranslate"><span class="pre">1</span></code> by plotting the matrix with the commands:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">w1</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;binary&#39;</span><span class="p">,</span><span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;gaussian&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Verify w1 is a NumPy array</span>
+<span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">w1</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Exercises 1a Test 1: Success!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">3</span><span class="o">-</span><span class="mi">44</span><span class="n">f4efbdb114</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Verify w1 is a NumPy array</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">w1</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Exercises 1a Test 1: Success!&quot;</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;w1&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Verify w1 has the correct size</span>
+<span class="k">assert</span> <span class="n">w1</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Exercises 1a Test 2: Success!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Verify w1 has correct values (up to absolute value)</span>
+<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">w1</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">:</span><span class="mi">6</span><span class="p">]),</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">0.00963177</span><span class="p">,</span> <span class="mf">0.26208274</span><span class="p">],[</span><span class="o">-</span><span class="mf">0.01229312</span><span class="p">,</span> <span class="mf">0.26978355</span><span class="p">]])))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Exercises 1a Test 3: Success!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>(b) The same procedure from part (a) applied to the digit <code class="docutils literal notranslate"><span class="pre">4</span></code> produces the weight vector <code class="docutils literal notranslate"><span class="pre">w4</span></code> defined in the cell below. We want to use the first weight vector <code class="docutils literal notranslate"><span class="pre">w1</span></code> you found in part (a) and the given first weight vector <code class="docutils literal notranslate"><span class="pre">w4</span></code> to set up a very basic image recognition algorithm. For simplicity we will work only with the first ten handwritten images of the digit <code class="docutils literal notranslate"><span class="pre">1</span></code> and of the digit <code class="docutils literal notranslate"><span class="pre">4</span></code> from the digits dataset <code class="docutils literal notranslate"><span class="pre">X</span></code>.</p>
+<p>Here is an example that will help you with the code you need write below. Suppose we wanted to save the first five images of the digit <code class="docutils literal notranslate"><span class="pre">9</span></code> in the dataset <code class="docutils literal notranslate"><span class="pre">X</span></code> to a NumPy array called <code class="docutils literal notranslate"><span class="pre">Y9</span></code>. This can be done by typing</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Y9</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">y</span> <span class="o">==</span> <span class="mi">9</span><span class="p">][</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Five handwritten images of the digit <code class="docutils literal notranslate"><span class="pre">9</span></code> are now stored as 1 x 64 vector (ie. a row vector) in the 5 x 64 NumPy array <code class="docutils literal notranslate"><span class="pre">Y9</span></code>. (You can check this by letting Python print out this array.)</p>
+<p><strong>A simple digit recognition algorithm</strong></p>
+<p>We start with the first ten images of the digit <code class="docutils literal notranslate"><span class="pre">1</span></code> from the digit dataset X. Our <strong>digit recognition algorithm</strong> will decide if each image is more similar to a <code class="docutils literal notranslate"><span class="pre">1</span></code> or to a <code class="docutils literal notranslate"><span class="pre">4</span></code>. Obviously the algorithm does not know that we only test images of <code class="docutils literal notranslate"><span class="pre">1</span></code> at the moment. Our algorithm will compute the inner product between each test image and the two first weight vectors <code class="docutils literal notranslate"><span class="pre">w1</span></code> and <code class="docutils literal notranslate"><span class="pre">w4</span></code>. The algorithm then decides that the underlying digit is closer to <code class="docutils literal notranslate"><span class="pre">1</span></code> (respectively <code class="docutils literal notranslate"><span class="pre">4</span></code>) if the inner product of the test image with <code class="docutils literal notranslate"><span class="pre">w1</span></code> (respectively <code class="docutils literal notranslate"><span class="pre">w4</span></code>) is greater (in absolute value) that the other inner product. The recognized value should then be stored in a NumPy array called <code class="docutils literal notranslate"><span class="pre">RecoImY1</span></code>. Recall that in our test, we only consider images of the digit <code class="docutils literal notranslate"><span class="pre">1</span></code> at the moment.</p>
+<p>If this algorithm works perfectly, all entries of <code class="docutils literal notranslate"><span class="pre">RecoImY1</span></code> would be <code class="docutils literal notranslate"><span class="pre">1</span></code>. <strong>This will not happen because some 1s will be mistaken for 4s.</strong></p>
+<p><strong>Hints</strong></p>
+<ol>
+<li><p>Recall that the weight vectors <code class="docutils literal notranslate"><span class="pre">w1</span></code> and <code class="docutils literal notranslate"><span class="pre">w4</span></code> were reshaped to have form (8,8), so you need to bring them back into their original form, which had shape (64,).</p></li>
+<li><p>You need to initialize the NumPy array <code class="docutils literal notranslate"><span class="pre">RecoImY1</span></code> before you can use it. In the above case for the digit <code class="docutils literal notranslate"><span class="pre">9</span></code> this would for example work by writing</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">RecoImY9</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">Y9</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">RecoImY9</span></code> is then a NumPy array of zeros with shape (5,).</p>
+</li>
+<li><p>You will need <code class="docutils literal notranslate"><span class="pre">if</span></code> statements to write the algorithm. The syntax is as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="n">y</span><span class="p">:</span> 
+    <span class="n">Do</span> <span class="n">what</span> <span class="ow">is</span> <span class="n">written</span> <span class="n">here</span>
+<span class="k">else</span><span class="p">:</span> 
+    <span class="n">Do</span> <span class="n">what</span> <span class="ow">is</span> <span class="n">writen</span> <span class="n">here</span>
+</pre></div>
+</div>
+<p>Note that you can also do other logical conditions like: <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&lt;</span> <span class="pre">y</span></code>, <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&lt;=</span> <span class="pre">y</span></code> or <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&gt;=</span> <span class="pre">y</span></code>.</p>
+</li>
+<li><p>A <code class="docutils literal notranslate"><span class="pre">for</span></code> loop will be useful for an efficient algorithm. You could also test everything by hand, but why not let the computer do it for you. The syntax is as follow:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">):</span>  
+    <span class="n">Do</span> <span class="n">what</span> <span class="n">ever</span> <span class="ow">is</span> <span class="n">written</span> <span class="n">here</span> <span class="k">as</span> <span class="n">long</span> <span class="k">as</span> <span class="n">x</span> <span class="ow">is</span> <span class="n">smaller</span> <span class="n">than</span> <span class="n">b</span>
+</pre></div>
+</div>
+<p>Note that <span class="math notranslate nohighlight">\(x\)</span> is initially equal to <span class="math notranslate nohighlight">\(a\)</span> but will never be equal to <span class="math notranslate nohighlight">\(b\)</span> since the loop ends when <span class="math notranslate nohighlight">\(x = b - 1\)</span>, i.e. over the course of the loop x will have the values
+$<span class="math notranslate nohighlight">\(
+ a, a + 1, a + 2, \ldots , b - 2, b - 1
+ \)</span>$</p>
+</li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">w4</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span> <span class="mf">7.08079050e-18</span><span class="p">,</span>  <span class="mf">0.00000000e+00</span><span class="p">,</span> <span class="o">-</span><span class="mf">5.02849518e-02</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.97238642e-01</span><span class="p">,</span>  <span class="mf">1.84695575e-01</span><span class="p">,</span>  <span class="mf">1.14899381e-01</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.58116851e-02</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.11368171e-02</span><span class="p">],</span>
+               <span class="p">[</span><span class="o">-</span><span class="mf">3.38813179e-21</span><span class="p">,</span> <span class="o">-</span><span class="mf">7.43279726e-03</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.35073952e-01</span><span class="p">,</span> <span class="o">-</span><span class="mf">9.98801157e-02</span><span class="p">,</span>  <span class="mf">2.92945664e-01</span><span class="p">,</span> <span class="o">-</span><span class="mf">4.74672855e-02</span><span class="p">,</span> <span class="o">-</span><span class="mf">4.14894802e-02</span><span class="p">,</span> <span class="o">-</span><span class="mf">3.22223275e-03</span><span class="p">],</span>
+               <span class="p">[</span><span class="o">-</span><span class="mf">9.24446373e-33</span><span class="p">,</span> <span class="o">-</span><span class="mf">5.69690091e-02</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.77798747e-01</span><span class="p">,</span>  <span class="mf">2.12806922e-01</span><span class="p">,</span>  <span class="mf">5.69532859e-02</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.75771476e-01</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.43629307e-02</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.88819118e-03</span><span class="p">],</span>
+               <span class="p">[</span><span class="o">-</span><span class="mf">3.39187263e-04</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.39856359e-01</span><span class="p">,</span> <span class="o">-</span><span class="mf">5.72190559e-02</span><span class="p">,</span>  <span class="mf">1.18455371e-01</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.85598799e-01</span><span class="p">,</span> <span class="o">-</span><span class="mf">9.14062156e-02</span><span class="p">,</span>  <span class="mf">2.11290667e-02</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.50005173e-04</span><span class="p">],</span>
+               <span class="p">[</span> <span class="mf">0.00000000e+00</span><span class="p">,</span>  <span class="mf">5.10044783e-03</span><span class="p">,</span>  <span class="mf">3.89027431e-02</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.24666150e-01</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.51310463e-01</span><span class="p">,</span>  <span class="mf">5.40415172e-02</span><span class="p">,</span>  <span class="mf">6.72485790e-02</span><span class="p">,</span>  <span class="mf">0.00000000e+00</span><span class="p">],</span>
+               <span class="p">[</span> <span class="mf">4.86713162e-03</span><span class="p">,</span>  <span class="mf">1.50174435e-01</span><span class="p">,</span>  <span class="mf">1.39099853e-01</span><span class="p">,</span> <span class="o">-</span><span class="mf">5.18899069e-03</span><span class="p">,</span>  <span class="mf">9.49909392e-03</span><span class="p">,</span>  <span class="mf">2.71113924e-01</span><span class="p">,</span>  <span class="mf">6.95007367e-02</span><span class="p">,</span>  <span class="mf">0.00000000e+00</span><span class="p">],</span>
+               <span class="p">[</span> <span class="mf">4.39152824e-03</span><span class="p">,</span>  <span class="mf">4.94882760e-02</span><span class="p">,</span>  <span class="mf">7.68346479e-02</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.93246236e-01</span><span class="p">,</span>  <span class="mf">1.07909526e-01</span><span class="p">,</span>  <span class="mf">2.49266964e-01</span><span class="p">,</span>  <span class="mf">1.62298306e-03</span><span class="p">,</span>  <span class="mf">0.00000000e+00</span><span class="p">],</span>
+               <span class="p">[</span> <span class="mf">0.00000000e+00</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.13829777e-05</span><span class="p">,</span> <span class="o">-</span><span class="mf">5.72504349e-02</span><span class="p">,</span> <span class="o">-</span><span class="mf">3.26616375e-01</span><span class="p">,</span>  <span class="mf">2.19895171e-01</span><span class="p">,</span>  <span class="mf">1.42051636e-01</span><span class="p">,</span>  <span class="mf">0.00000000e+00</span><span class="p">,</span>  <span class="mf">0.00000000e+00</span><span class="p">]])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">w4</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;binary&#39;</span><span class="p">,</span><span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;gaussian&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Verify RecoImY1 is a NumPy array</span>
+<span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">RecoImY1</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Exercises 1b Test 1: Success!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Verify RecoImY1 has the correct size</span>
+<span class="k">assert</span> <span class="n">RecoImY1</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="mi">10</span><span class="p">,)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Exercises 1b Test 2: Success!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Verify RecoImY1 has the correct values</span>
+<span class="c1"># Note: this cell contains hidden tests</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Exercises 1b Test 3: Success!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>(c) Applying the same procedure from part (b) for the first ten images of the digit <code class="docutils literal notranslate"><span class="pre">4</span></code> we obtain the array</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">RecoImY4</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">4.</span><span class="p">,</span> <span class="mf">4.</span><span class="p">,</span> <span class="mf">4.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">4.</span><span class="p">,</span> <span class="mf">4.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">4.</span><span class="p">,</span> <span class="mf">4.</span><span class="p">,</span> <span class="mf">4.</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>How many images did our algorithm recognize correctly?</p>
+<p>Write the number of correctly recognized images of the digit <code class="docutils literal notranslate"><span class="pre">1</span></code> into the variable <code class="docutils literal notranslate"><span class="pre">CorrectlyRecognized1s</span></code>. Accordingly write the number of correctly recognized images of the digit <code class="docutils literal notranslate"><span class="pre">4</span></code> to the variable <code class="docutils literal notranslate"><span class="pre">CorrectlyRecognized4s</span></code> and print both with the following commands:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of correctly recognized 1s:&quot;</span><span class="p">,</span> <span class="n">CorrectlyRecognized1s</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of correctly recognized 4s:&quot;</span><span class="p">,</span> <span class="n">CorrectlyRecognized4s</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">RecoImY4</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">4.</span><span class="p">,</span> <span class="mf">4.</span><span class="p">,</span> <span class="mf">4.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">4.</span><span class="p">,</span> <span class="mf">4.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">4.</span><span class="p">,</span> <span class="mf">4.</span><span class="p">,</span> <span class="mf">4.</span><span class="p">])</span>
+<span class="c1"># YOUR CODE HERE</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Verify CorrectlyRecognized1s and CorrectlyRecognized4s are defined as integers and have the correct values</span>
+<span class="c1"># Note: this cell contains hidden tests</span>
+<span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">CorrectlyRecognized1s</span><span class="p">,</span><span class="nb">int</span><span class="p">)</span>
+<span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">CorrectlyRecognized4s</span><span class="p">,</span><span class="nb">int</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Exercises 1c Test 1: Success!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="exercise-2-svd-of-toeplitz-matrices">
+<h1>Exercise 2: SVD of Toeplitz matrices<a class="headerlink" href="#exercise-2-svd-of-toeplitz-matrices" title="Permalink to this headline">¶</a></h1>
+<p>The SVD of a matrix <span class="math notranslate nohighlight">\(A = P \Sigma Q^T\)</span> yields a formula for <span class="math notranslate nohighlight">\(A\)</span> as a sum of rank one matrices</p>
+<div class="math notranslate nohighlight">
+\[
+A = \sigma_1 \mathbf{p}_1 \mathbf{q}_1^T + \cdots + \sigma_r \mathbf{p}_r \mathbf{q}_r^T
+\]</div>
+<p>The truncated SVD of rank <span class="math notranslate nohighlight">\(k \leq r\)</span> is given by</p>
+<div class="math notranslate nohighlight">
+\[
+A_k = \sigma_1 \mathbf{p}_1 \mathbf{q}_1^T + \cdots + \sigma_k \mathbf{p}_k \mathbf{q}_k^T
+\]</div>
+<p>Note that the product of vectors <span class="math notranslate nohighlight">\(\mathbf{p} \mathbf{q}^T\)</span> is called the outer product. Use the function <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.outer.html"><code class="docutils literal notranslate"><span class="pre">numpy.outer</span></code></a> to compute the outer product of vectors.</p>
+<p>The following code creates a Toeplitz matrix <span class="math notranslate nohighlight">\(A\)</span> of size <span class="math notranslate nohighlight">\(N\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">16</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+<span class="n">c</span><span class="p">[:</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">0.75</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.25</span><span class="p">])</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">la</span><span class="o">.</span><span class="n">toeplitz</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;binary&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>(a) Compute the SVD of <span class="math notranslate nohighlight">\(A\)</span> and then compute <span class="math notranslate nohighlight">\(\sigma_1 \mathbf{p}_1 \mathbf{q}_1^T\)</span> and save the result as <code class="docutils literal notranslate"><span class="pre">s1p1q1T</span></code>. Recall, in Python, array indices begin at 0 not 1.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Verify s1p1q1T is a NumPy array</span>
+<span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">s1p1q1T</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Exercises 2a Test 1: Success!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Verify s1p1q1T is the correct size</span>
+<span class="k">assert</span> <span class="n">s1p1q1T</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">16</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Exercises 2a Test 2: Success!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Verify s1p1q1T has the correct values</span>
+<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">s1p1q1T</span><span class="p">[:</span><span class="mi">2</span><span class="p">,:</span><span class="mi">2</span><span class="p">],</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">0.03147122</span><span class="p">,</span> <span class="mf">0.04833746</span><span class="p">],[</span><span class="mf">0.04833746</span><span class="p">,</span> <span class="mf">0.07424275</span><span class="p">]]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Exercises 2a Test 3: Success!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>(b) Plot the matrix <span class="math notranslate nohighlight">\(\sigma_k \mathbf{p}_k \mathbf{q}_k^T\)</span> for different values <span class="math notranslate nohighlight">\(k\)</span> using the code</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>skpkqkT = # Modify your code from part (a)
+plt.imshow(skpkqkT,cmap=&#39;binary&#39;)
+plt.colorbar()
+</pre></div>
+</div>
+<p>Based on your observations, determine whether the following statement is <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>:</p>
+<blockquote>
+<div><p>As <span class="math notranslate nohighlight">\(k\)</span> increases, the matrix <span class="math notranslate nohighlight">\(\sigma_k \mathbf{p}_k \mathbf{q}_k^T\)</span> contains higher frequency data. In other words, as <span class="math notranslate nohighlight">\(k\)</span> increases, the entries in the matrix oscillate more quickly from entry to entry across the matrix.</p>
+</div></blockquote>
+<p>Save your response to the variable <code class="docutils literal notranslate"><span class="pre">high_frequency</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Verify high_frequency is defined as True or False (boolean value)</span>
+<span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">high_frequency</span><span class="p">,</span><span class="nb">bool</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Exercises 2b Test 1: Success!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Verify high_frequency has correct value</span>
+<span class="c1"># Note: this cell contains hidden tests</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Exercises 2b Test 2: Success!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>(c) Use <code class="docutils literal notranslate"><span class="pre">plt.plot(S,'b.')</span></code> to plot the singular values of <span class="math notranslate nohighlight">\(A\)</span> as a scatter plot. How many singular values are greater than <span class="math notranslate nohighlight">\(1/2\)</span>? Save your response as <code class="docutils literal notranslate"><span class="pre">n_singular_values</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Verify n_singular_values is defined as an integer</span>
+<span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">n_singular_values</span><span class="p">,</span><span class="nb">int</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Exercises 2c Test 1: Success!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Verify n_singular_values has correct value</span>
+<span class="c1"># Note: this cell contains hidden tests</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Exercises 2c Test 2: Success!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>(d) The following code computes the truncated SVD <span class="math notranslate nohighlight">\(A_k\)</span></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Ak = sum([S[i]*np.outer(P[:,i],QT[i,:]) for i in range(0,k)])
+</pre></div>
+</div>
+<p>Copy, paste and modify the code to compute the truncated pseudoinverse</p>
+<div class="math notranslate nohighlight">
+\[
+A_k^+ = \frac{1}{\sigma_1} \mathbf{q}_1 \mathbf{p}_1^T + \cdots + \frac{1}{\sigma_k} \mathbf{q}_k \mathbf{p}_k^T
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(k\)</span> is the number found in part (c). In other words, <span class="math notranslate nohighlight">\(\sigma_1,\dots,\sigma_k &gt; 1/2\)</span> and <span class="math notranslate nohighlight">\(\sigma_m \leq 1/2\)</span> for <span class="math notranslate nohighlight">\(m &gt; k\)</span>. Save the result as <code class="docutils literal notranslate"><span class="pre">Ak_plus</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Verify Ak_plus is a NumPy array</span>
+<span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">Ak_plus</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Exercises 2d Test 1: Success!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Verify Ak_plus has the correct shape</span>
+<span class="k">assert</span> <span class="n">Ak_plus</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">16</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Exercises 2d Test 2: Success!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Verify Ak_plus has the correct values</span>
+<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">Ak_plus</span><span class="p">[:</span><span class="mi">2</span><span class="p">,:</span><span class="mi">2</span><span class="p">],</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">0.41329088</span><span class="p">,</span> <span class="mf">0.23136187</span><span class="p">],[</span><span class="mf">0.23136187</span><span class="p">,</span> <span class="mf">0.17793872</span><span class="p">]]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Exercises 2d Test 3: Success!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="exercise-3-pagerank">
+<h2>Exercise 3: PageRank<a class="headerlink" href="#exercise-3-pagerank" title="Permalink to this headline">¶</a></h2>
+<p>The cell below reads the data from the file <code class="docutils literal notranslate"><span class="pre">webgraph.txt</span></code> and creates a directed graph <span class="math notranslate nohighlight">\(G\)</span> with 100 nodes, its adjacency matrix <span class="math notranslate nohighlight">\(A\)</span> and the stochastic matrix <span class="math notranslate nohighlight">\(P\)</span>, and plots the graph. The matrix <span class="math notranslate nohighlight">\(P\)</span> represents the markov chain for the process: at each step, click a random link on the page.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">read_edgelist</span><span class="p">(</span><span class="s1">&#39;webgraph.txt&#39;</span><span class="p">,</span><span class="n">create_using</span><span class="o">=</span><span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">)</span>
+<span class="n">mapping</span> <span class="o">=</span> <span class="p">{</span><span class="n">n</span><span class="p">:</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">n</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">)}</span>
+<span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">relabel_nodes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="n">mapping</span><span class="p">)</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">nx</span><span class="o">.</span><span class="n">adjacency_matrix</span><span class="p">(</span><span class="n">G</span><span class="p">)</span><span class="o">.</span><span class="n">todense</span><span class="p">()</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+<span class="n">P</span> <span class="o">=</span> <span class="n">A</span><span class="o">/</span><span class="n">A</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="n">with_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>(a) Create the Google matrix <span class="math notranslate nohighlight">\(\alpha P + (1 - \alpha)\mathbf{v} \mathbf{e}^T\)</span> for <span class="math notranslate nohighlight">\(\alpha = 0.85\)</span> where <span class="math notranslate nohighlight">\(\mathbf{e}\)</span> is the vector with all ones and <span class="math notranslate nohighlight">\(\mathbf{v} = 0.01 \mathbf{e}\)</span> is the uniform distribution vector for <span class="math notranslate nohighlight">\(N=100\)</span> nodes. Save the result as <code class="docutils literal notranslate"><span class="pre">M</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Verify M is a NumPy array</span>
+<span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">M</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Exercises 3a Test 1: Success!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Verify M has the correct size</span>
+<span class="k">assert</span> <span class="n">M</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Exercises 3a Test 2: Success!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Verify M has correct values</span>
+<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">M</span><span class="p">[:</span><span class="mi">2</span><span class="p">,:</span><span class="mi">2</span><span class="p">],</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">0.0015</span><span class="p">,</span> <span class="mf">0.0015</span><span class="p">],[</span><span class="mf">0.214</span> <span class="p">,</span> <span class="mf">0.0015</span><span class="p">]]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Exercises 3a Test 3: Success!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>(b) The following code performs 5 iterations of the power method (without normalization) with initial vector <span class="math notranslate nohighlight">\(\mathbf{x}_0 = [1 \ 0 \ \cdots \ 0]^T\)</span>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>iterations = 5
+xk = np.zeros(100)
+xk[0] = 1
+for k in range(0,iterations):
+    xk = M @ xk
+</pre></div>
+</div>
+<p>Copy, paste and modify the code to perform 10 iterations and use the function <code class="docutils literal notranslate"><span class="pre">numpy.argmax</span></code> to find the webpage with the highest probability in the state vector <span class="math notranslate nohighlight">\(\mathbf{x}_k\)</span>. Save the index as <code class="docutils literal notranslate"><span class="pre">webpage1</span></code>. Plot the graph with colors given by the state vector using the following code:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>plt.figure(figsize=(12,8))
+nx.draw(G,node_color=xk,cmap=&#39;winter&#39;,with_labels=True)
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Verify webpage1 is a NumPy integer</span>
+<span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">webpage1</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Exercises 3b Test 1: Success!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Verify webpage1 has the correct value</span>
+<span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">webpage1</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Exercises 3b Test 2: Success!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>(c) Repeat (b) but now with 100 iterations. Save the result as <code class="docutils literal notranslate"><span class="pre">webpage2</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Verify webpage2 is a NumPy integer</span>
+<span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">webpage2</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Exercises 3c Test 1: Success!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Verify webpage2 has the correct value</span>
+<span class="c1"># Note: this cell contains hidden tests</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Exercises 3c Test 2: Success!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>(d) Let <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> be the vector where <span class="math notranslate nohighlight">\(v_i = 1/10\)</span> for the 10 indices <span class="math notranslate nohighlight">\(i=94, 96, 87, 88, 12, 95, 16, 93, 99, 77\)</span> and all other <span class="math notranslate nohighlight">\(v_j = 0\)</span>. Create the Google matrix for <span class="math notranslate nohighlight">\(\alpha = 0.9\)</span> and the vector <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> defined in the cell above. Save the result as <code class="docutils literal notranslate"><span class="pre">M10</span></code>.</p>
+<p>The indices included in <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> are the webpages with lowest pagerank after 20 iterations. Execute the cell below to verify. The matrix <code class="docutils literal notranslate"><span class="pre">M10</span></code> is the stochastic matrix for the process: either click a link with probability 0.9 or return to one of the low rank webpages listed in <span class="math notranslate nohighlight">\(\mathbf{v}\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">iterations</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">xk</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">xk</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">iterations</span><span class="p">):</span>
+    <span class="n">xk</span> <span class="o">=</span> <span class="n">M</span><span class="nd">@xk</span>
+
+<span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">xk</span><span class="p">)[:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Verify M10 is a NumPy array</span>
+<span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">M10</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Exercises 3d Test 1: Success!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Verify M10 has the correct size</span>
+<span class="k">assert</span> <span class="n">M10</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Exercises 3d Test 2: Success!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Verify M10 has the correct values</span>
+<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">M10</span><span class="p">[</span><span class="mi">87</span><span class="p">:</span><span class="mi">89</span><span class="p">,</span><span class="mi">90</span><span class="p">:</span><span class="mi">92</span><span class="p">],</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.11</span><span class="p">],[</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">]]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Exercises 3d Test 3: Success!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>(e) Let’s see if this new markov chain changes the result. Compute 10 iterations of the power method (without normalization) for <code class="docutils literal notranslate"><span class="pre">M10</span></code> starting with initial vector <span class="math notranslate nohighlight">\(\mathbf{x}_0 = [1 \ 0 \ \cdots \ 0]^T\)</span>. Use the function <code class="docutils literal notranslate"><span class="pre">numpy.argmax</span></code> to find the webpage with the highest probability in the state vector <span class="math notranslate nohighlight">\(\mathbf{x}_k\)</span>. Save the index as <code class="docutils literal notranslate"><span class="pre">webpage3</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Verify webpage3 is a NumPy integer</span>
+<span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">webpage3</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Exercises 3e Test 1: Success!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Verify webpage2 has the correct value</span>
+<span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">webpage3</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Exercises 3e Test 2: Success!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="n">node_color</span><span class="o">=</span><span class="n">xk</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;winter&#39;</span><span class="p">,</span><span class="n">with_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="PowerMethod.html" title="previous page">Computing Eigenvalues</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Markus Lange<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>
