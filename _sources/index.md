@@ -60,5 +60,7 @@ You will need the following notebooks for part 3 of Homework 1:
 
 - [Deblurring Images](https://mlange01.github.io/MATH307/notebooks/Deblurring_images.html)
 
+- [PowerMethod](https://mlange01.github.io/MATH307/notebooks/PowerMethod.html)
+
 ### Chapter 4 Discret Fourier Transform 
 
