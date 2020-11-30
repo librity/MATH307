@@ -38,4 +38,8 @@
   chapters:
   - file: notebooks/homework2.ipynb
   
+- part: Discret Fourier Transform
+  chapters:
+  - file: notebooks/DFT.ipynb
+  
 
