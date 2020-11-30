@@ -74,3 +74,5 @@ The Homework 2 has two parts.
 
 ### Chapter 4 Discret Fourier Transform 
 
+- [Discret Fourier Transform](https://mlange01.github.io/MATH307/notebooks/DFT.html)
+
