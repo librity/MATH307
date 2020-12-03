@@ -41,5 +41,5 @@
 - part: Discret Fourier Transform
   chapters:
   - file: notebooks/DFT.ipynb
-  
+  - file: notebooks/SARExampleLastLecture.ipynb
 
