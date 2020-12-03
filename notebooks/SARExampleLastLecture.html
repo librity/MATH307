@@ -1,0 +1,1031 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Synthetic-aperture radar &#8212; Applied Linear Algebra</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Discrete Fourier Transform" href="DFT.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Applied Linear Algebra</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <p class="caption collapsible-parent">
+ <span class="caption-text">
+  Introduction
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="IntroFirstLecture.html">
+   MATH 307  –   What is it useful for
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Linear Systems
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="IntroductionToPythonPart1.html">
+   MATH 307   Applications of Linear Algebra
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="IntroductionToPythonPart2.html">
+   Part 2: NumPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Solving-linear-systems.html">
+   Solving Linear Systems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="NormsInPython.html">
+   Vector and Matrix Norms
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Polynomial_interpolation.html">
+   Polynomial Interpolation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Spline_interpolation.html">
+   Natural Cubic Spline Interpolation
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Homework 1
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="homework1LU.html">
+   The LU decomposition in python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="homework1_chebyshev.html">
+   Polynomial approximation: Equally spaced points vs. Chebyshev points
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="homework1_BVP.html">
+   Re-using the A=PLU factorization
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Quiz 2
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="pythonforquiz2.html">
+   How much python do I need to know for Quiz 2?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="pythonforquiz2.html#finite-differnce-equations-for-boundary-values-problems-with-a-parameter">
+   Finite differnce equations for boundary values problems with a parameter.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="pythonforquiz2.html#python-procedures-to-understand-coming-in-to-the-quizz">
+   python procedures to understand coming in to the quizz
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Least Squares
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="QR-DecompositionWithPython.html">
+   QR Decomposition
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Least_squares_regression.html">
+   Fitting Models to Data
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Eigenvalues-Eigenvectors
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="PowerMethod.html">
+   Computing Eigenvalues
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Homework 2
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="homework2.html">
+   MATH 307 Homework 2 (Part 2)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="homework2.html#exercise-2-svd-of-toeplitz-matrices">
+   Exercise 2: SVD of Toeplitz matrices
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Discret Fourier Transform
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="DFT.html">
+   Discrete Fourier Transform
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Synthetic-aperture radar
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/notebooks/SARExampleLastLecture.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        
+        <a class="jupyterhub-button" href="https://ubc.syzygy.ca/jupyter/hub/user-redirect/git-pull?repo=https://github.com/mlange01/MATH307&urlpath=tree/MATH307/notebooks/SARExampleLastLecture.ipynb&branch=master"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="../_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-real-life-example-of-applied-linear-algebra">
+   A real-life example of Applied Linear Algebra
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basics-on-satellite-imagery">
+   Basics on satellite imagery
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#analysing-the-data">
+   Analysing the data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#importing-the-image">
+     Importing the image
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#calculating-the-dimensions-of-the-image-on-earth-in-metres">
+     Calculating the dimensions of the image on earth in metres
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#rows-and-columns">
+     Rows and Columns
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#converting-the-pixel-co-ordinates-to-longitudes-and-latitudes">
+     Converting the pixel co-ordinates to longitudes and latitudes
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bands">
+     Bands
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#visualising-the-satellite-imagery">
+   Visualising the Satellite Imagery
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#working-with-satellite-data">
+   Working with Satellite Data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#some-biology">
+     Some Biology
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#back-to-the-vegetation-index">
+     Back to the vegetation index
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#calculating-normalized-difference-vegetation-index-for-our-satellite-data">
+   Calculating Normalized Difference Vegetation Index for our satellite data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#extracting-the-data-from-the-red-and-near-infrared-bands">
+     Extracting the data from the red and near-infrared bands
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#calculating-ndvi">
+     Calculating NDVI
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#checking-the-range-of-ndvi-values-excluding-nan">
+     Checking the range of NDVI values(excluding NaN)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#saving-the-ndvi-images">
+     Saving the NDVI images
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#applying-a-color-scheme-to-visualize-the-ndvi-values-on-the-new-images">
+     Applying a color scheme to visualize the NDVI values on the new images
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#interpretation-of-ndvi">
+     Interpretation of NDVI
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#generating-a-histogram-of-ndvi-values">
+     Generating a histogram of NDVI values
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#normalized-difference-water-index-ndwi">
+   Normalized difference water index (NDWI)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#interpretation-of-the-ndwi">
+     Interpretation of the NDWI
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="synthetic-aperture-radar">
+<h1>Synthetic-aperture radar<a class="headerlink" href="#synthetic-aperture-radar" title="Permalink to this headline">¶</a></h1>
+<p><strong>!! Satellite data not included !!</strong></p>
+<div class="section" id="a-real-life-example-of-applied-linear-algebra">
+<h2>A real-life example of Applied Linear Algebra<a class="headerlink" href="#a-real-life-example-of-applied-linear-algebra" title="Permalink to this headline">¶</a></h2>
+<p>We have learned in the course how to use methods from Linear Algebra to obtain more information about a given linear system.</p>
+<p>In this last example we will see that the methods we have seen this term are used in actual real-life scientific applications. For this we will take a look at how to examine the vegetation cover of a region with the help of satellite data.</p>
+<p>This notebook is split into three parts:</p>
+<ul class="simple">
+<li><p>Basic knowledge on satellite imagery and the data we get from it.</p></li>
+<li><p>What is the Normalized Difference Vegetation Index (NDVI)</p></li>
+<li><p>Caclulation of the NVDI for the given satellite data</p></li>
+</ul>
+<p>The information in this notebook is based on the information freely available on Wikipedia. The Python code is from</p>
+<p>https://github.com/parulnith/Satellite-Imagery-Analysis-with-Python</p>
+<p>which is an introduction to “Satellite Imagery Analysis with Python” from Parul Pandey.</p>
+</div>
+<div class="section" id="basics-on-satellite-imagery">
+<h2>Basics on satellite imagery<a class="headerlink" href="#basics-on-satellite-imagery" title="Permalink to this headline">¶</a></h2>
+<p>Synthetic-aperture radar (SAR) is a form of radar that is used intensively to create two-dimensional images or even three-dimensional reconstructions of the surface of the earth.</p>
+<p>SAR is typically mounted on a moving platform, such as an aircraft or spacecraft. The distance the SAR device travels over a target in the time taken for the radar pulses to return to the antenna creates the large synthetic antenna aperture (the size of the antenna). The idea behind that is, that usually the larger the aperture, the higher the image resolution. Hence a SAR on a satellite can create high-resolution images with comparatively small physical antennas.</p>
+<p><strong>How does it work</strong>
+Electromagnetic waves are transmitted sequentially to “illuminate” a target scene. The echo of each pulse is received and the system electronics digitizes and stores the data for subsequent processing. As the SAR device on board the aircraft or spacecraft moves, the antenna location relative to the target changes with time. Signal processing of the successive recorded radar echoes allows to combine the recordings from these multiple antenna positions. This builds a virtual aperture that is much longer than the physical antenna width. That is the source of the term “synthetic aperture”.</p>
+<p><img alt="title" src="notebooks/img/Synthetic_Aperture_Radar.png" /></p>
+<p>There are multiple ways to obtain satellite data. For example NASA and ESA both have website where one can get raw earth observation data for free:</p>
+<ul class="simple">
+<li><p>https://earthdata.nasa.gov/</p></li>
+<li><p>https://scihub.copernicus.eu/</p></li>
+</ul>
+<p>We will use here data from LandViewer, a simple, user-friendly web interface published by Earth Observing System (EOS) of NASA.
+(check out https://eos.com/lv/ for more information)</p>
+<p>In particular we will consider Surface Reflectance (SR) Data. Simply put, the SR data is recorded satellite data which has been algorithmically corrected to remove any interference from the atmosphere. Moreover the Python code is written for so-called 4 band image. These are images with spectral data for Blue, Green, Red and Near-infrared values. If you want to work with more or different spectral bands you have to change the code accordingly.</p>
+<p>Satellite data is stored in .TIF files. In the lecture I used the satellite data recorded by the satellite Sentinal 2 on the 28th of August 2020 and a few month earlier on the 20 Feburary 2020 while passing over the coast of British Columbia.</p>
+<p>Note that do to the size of the satellite images they are not included here. Please download your own and work locally, not on ubc.syzygy.ca.</p>
+</div>
+<div class="section" id="analysing-the-data">
+<h2>Analysing the data<a class="headerlink" href="#analysing-the-data" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+<span class="kn">import</span> <span class="nn">rasterio</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">c0417bac56ef</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">math</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">numpy</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">rasterio</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;rasterio&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="importing-the-image">
+<h3>Importing the image<a class="headerlink" href="#importing-the-image" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image_file_1</span> <span class="o">=</span> <span class="c1">#path-to-your-satellite-data</span>
+<span class="n">sat_data_1</span> <span class="o">=</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">image_file_1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="calculating-the-dimensions-of-the-image-on-earth-in-metres">
+<h3>Calculating the dimensions of the image on earth in metres<a class="headerlink" href="#calculating-the-dimensions-of-the-image-on-earth-in-metres" title="Permalink to this headline">¶</a></h3>
+<p>Let us get some information about our satellite data</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">width_in_projected_units</span> <span class="o">=</span> <span class="n">sat_data_1</span><span class="o">.</span><span class="n">bounds</span><span class="o">.</span><span class="n">right</span> <span class="o">-</span> <span class="n">sat_data_1</span><span class="o">.</span><span class="n">bounds</span><span class="o">.</span><span class="n">left</span>
+<span class="n">height_in_projected_units</span> <span class="o">=</span> <span class="n">sat_data_1</span><span class="o">.</span><span class="n">bounds</span><span class="o">.</span><span class="n">top</span> <span class="o">-</span> <span class="n">sat_data_1</span><span class="o">.</span><span class="n">bounds</span><span class="o">.</span><span class="n">bottom</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Width: </span><span class="si">{}</span><span class="s2"> m, Height: </span><span class="si">{}</span><span class="s2"> m&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">width_in_projected_units</span><span class="p">,</span> <span class="n">height_in_projected_units</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Width: 34020.0 m, Height: 36390.0 m
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="rows-and-columns">
+<h3>Rows and Columns<a class="headerlink" href="#rows-and-columns" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Rows: </span><span class="si">{}</span><span class="s2">, Columns: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sat_data_1</span><span class="o">.</span><span class="n">height</span><span class="p">,</span> <span class="n">sat_data_1</span><span class="o">.</span><span class="n">width</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Rows: 3639, Columns: 3402
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="converting-the-pixel-co-ordinates-to-longitudes-and-latitudes">
+<h3>Converting the pixel co-ordinates to longitudes and latitudes<a class="headerlink" href="#converting-the-pixel-co-ordinates-to-longitudes-and-latitudes" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Upper left pixel</span>
+<span class="n">row_min</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">col_min</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1"># Lower right pixel.  Rows and columns are zero indexing.</span>
+<span class="n">row_max</span> <span class="o">=</span> <span class="n">sat_data_1</span><span class="o">.</span><span class="n">height</span> <span class="o">-</span> <span class="mi">1</span>
+<span class="n">col_max</span> <span class="o">=</span> <span class="n">sat_data_1</span><span class="o">.</span><span class="n">width</span> <span class="o">-</span> <span class="mi">1</span>
+
+<span class="c1"># Transform coordinates with the dataset&#39;s affine transformation.</span>
+<span class="n">topleft</span> <span class="o">=</span> <span class="n">sat_data_1</span><span class="o">.</span><span class="n">transform</span> <span class="o">*</span> <span class="p">(</span><span class="n">row_min</span><span class="p">,</span> <span class="n">col_min</span><span class="p">)</span>
+<span class="n">botright</span> <span class="o">=</span> <span class="n">sat_data_1</span><span class="o">.</span><span class="n">transform</span> <span class="o">*</span> <span class="p">(</span><span class="n">row_max</span><span class="p">,</span> <span class="n">col_max</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Top left corner coordinates: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">topleft</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Bottom right corner coordinates: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">botright</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Top left corner coordinates: (465380.0, 5488630.0)
+Bottom right corner coordinates: (501760.0, 5454620.0)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="bands">
+<h3>Bands<a class="headerlink" href="#bands" title="Permalink to this headline">¶</a></h3>
+<p>The image that we are inspecting is a multispectral image consisting of 4 bands int he order B,G,R,N where N stands for near infrared.each band is stored as a numpy array.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">sat_data_1</span><span class="o">.</span><span class="n">count</span><span class="p">)</span>
+
+<span class="c1"># sequence of band indexes</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sat_data_1</span><span class="o">.</span><span class="n">indexes</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
+(1, 2, 3, 4)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="visualising-the-satellite-imagery">
+<h2>Visualising the Satellite Imagery<a class="headerlink" href="#visualising-the-satellite-imagery" title="Permalink to this headline">¶</a></h2>
+<p>We can use matplotlib to visualise the senor image data sets from the satellite since it essentially consists of arrays.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the 4 bands into 2d arrays - recall that we previously learned PlanetScope band order is BGRN.</span>
+<span class="n">b</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="n">sat_data_1</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Displaying the blue band.</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;nearest&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/SARExampleLastLecture_17_0.png" src="../_images/SARExampleLastLecture_17_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Displaying the green band.</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;nearest&#39;</span><span class="p">)</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">set_cmap</span><span class="p">(</span><span class="s1">&#39;gist_earth&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/SARExampleLastLecture_18_0.png" src="../_images/SARExampleLastLecture_18_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Displaying the red band.</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;nearest&#39;</span><span class="p">)</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">set_cmap</span><span class="p">(</span><span class="s1">&#39;inferno&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/SARExampleLastLecture_19_0.png" src="../_images/SARExampleLastLecture_19_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Displaying the infrared band.</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;nearest&#39;</span><span class="p">)</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">set_cmap</span><span class="p">(</span><span class="s1">&#39;winter&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/SARExampleLastLecture_20_0.png" src="../_images/SARExampleLastLecture_20_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="working-with-satellite-data">
+<h2>Working with Satellite Data<a class="headerlink" href="#working-with-satellite-data" title="Permalink to this headline">¶</a></h2>
+<p>Different kinds of data are captured by satellite sensors. One specific type of data specifically measures wavelengths of light absorbed and reflected by green plants. With this data we can calculate a <strong>vegetation index</strong>, i.e. an indicator of the greenness of the observed area. It is used to measure and monitor the health of a vegetation.</p>
+<div class="section" id="some-biology">
+<h3>Some Biology<a class="headerlink" href="#some-biology" title="Permalink to this headline">¶</a></h3>
+<p>Chlorophyll, the pigments in plant leaves, strongly absorbs visible light (from 400 to 700 nanometers) for use in photosynthesis. This is the so-called photosynthetically active radiation (PAR) spectral region or simply the visible spectrum of light.</p>
+<p><img alt="title" src="notebooks/img/EM-spectrum.png" /></p>
+<p>On the other hand, the cell structure of the leaves strongly reflects near-infrared light (from 700 to 1100 nanometers).
+The reason for that is, that photon energy at wavelengths longer than about 700 nanometers is too small to synthesize organic molecules, i.e. the plant can not generate energy from photons with these wavelength. A strong absorption at these wavelengths would therefore only result in overheating the plant and possibly damaging the tissues.</p>
+<p>As a result, live green plants appear relatively dark in the PAR and relatively bright in the near-infrared. By contrast, clouds and snow tend to be rather bright in the red (as well as other visible wavelengths) and quite dark in the near-infrared.
+It is therefore natural to exploit the strong differences in plant reflectance to determine their spatial distribution in satellite images.</p>
+</div>
+<div class="section" id="back-to-the-vegetation-index">
+<h3>Back to the vegetation index<a class="headerlink" href="#back-to-the-vegetation-index" title="Permalink to this headline">¶</a></h3>
+<p>One of the most widely used index to measure vegetation is the <strong>Normalized Difference Vegetation Index (NDVI)</strong>. It was developed by NASA scientist Compton Tucker in 1977.
+The NDVI compares the amount of reflected near-infrared light to reflected visible red light and is directly related to the photosynthetic capacity and hence the amount of energy absorption of the plants canopies.</p>
+<div class="math notranslate nohighlight">
+\[
+  \rm{NDVI}= \frac{({\rm{NIR}}-{\rm{Red}})}{({\rm{NIR}}+{\rm{Red}})}
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\rm{Red}\)</span> and <span class="math notranslate nohighlight">\(\rm{NIR}\)</span> stand for the spectral reflectance measurements acquired in the red (visible) and near-infrared regions, respectively. These spectral reflectances take on values between 0.0 and 1.0. The NDVI thus varies between -1.0 and +1.0.</p>
+<img src=img/NDVI.png width ="1000" height=1000 >
+<p>Note that even in densely populated urban areas the value of a normal NDVI is still positive but close to zero. Negative values are more likely to be disturbed in the atmosphere and some specific materials. Note also that water and ice have negative values.</p>
+</div>
+</div>
+<div class="section" id="calculating-normalized-difference-vegetation-index-for-our-satellite-data">
+<h2>Calculating Normalized Difference Vegetation Index for our satellite data<a class="headerlink" href="#calculating-normalized-difference-vegetation-index-for-our-satellite-data" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="extracting-the-data-from-the-red-and-near-infrared-bands">
+<h3>Extracting the data from the red and near-infrared bands<a class="headerlink" href="#extracting-the-data-from-the-red-and-near-infrared-bands" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">band_red_1</span> <span class="o">=</span> <span class="n">sat_data_1</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">band_nir_1</span> <span class="o">=</span> <span class="n">sat_data_1</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="calculating-ndvi">
+<h3>Calculating NDVI<a class="headerlink" href="#calculating-ndvi" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Do not display error when divided by zero </span>
+<span class="n">numpy</span><span class="o">.</span><span class="n">seterr</span><span class="p">(</span><span class="n">divide</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span> <span class="n">invalid</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+
+<span class="c1"># NDVI </span>
+<span class="n">ndvi_1</span> <span class="o">=</span> <span class="p">(</span><span class="n">band_nir_1</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span> <span class="o">-</span> <span class="n">band_red_1</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="n">band_nir_1</span> <span class="o">+</span> <span class="n">band_red_1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="checking-the-range-of-ndvi-values-excluding-nan">
+<h3>Checking the range of NDVI values(excluding NaN)<a class="headerlink" href="#checking-the-range-of-ndvi-values-excluding-nan" title="Permalink to this headline">¶</a></h3>
+<p>Let’s print the minimum and maximum values in our calculated ndvi. Because we’re using the NDVI formula to normalize the input bands, we know that our expected values should fall within -1.0 to +1.0.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Minimum NDVI for image_file_1 &quot;</span><span class="p">,</span><span class="n">numpy</span><span class="o">.</span><span class="n">nanmin</span><span class="p">(</span><span class="n">ndvi_1</span><span class="p">))</span> 
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Maximum NDVI for image_file_1: &quot;</span><span class="p">,</span><span class="n">numpy</span><span class="o">.</span><span class="n">nanmax</span><span class="p">(</span><span class="n">ndvi_1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Minimum NDVI for image_file_1  -0.9960079840319361
+Maximum NDVI for image_file_1:  0.9998716714789863
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="saving-the-ndvi-images">
+<h3>Saving the NDVI images<a class="headerlink" href="#saving-the-ndvi-images" title="Permalink to this headline">¶</a></h3>
+<p>For each of the two observation dates we will save the results to a new single band image. This new image file will use the geospatial data from the original satellite data tif images.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get the metadata of original images:</span>
+<span class="n">meta_1</span> <span class="o">=</span> <span class="n">sat_data_1</span><span class="o">.</span><span class="n">meta</span>
+
+<span class="c1"># meta data of the image</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Meta data of the first image: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">meta_1</span><span class="p">)</span>
+
+<span class="c1"># get the dtype of our NDVI array:</span>
+<span class="n">ndvi_1_dtype</span> <span class="o">=</span> <span class="n">ndvi_1</span><span class="o">.</span><span class="n">dtype</span>
+
+<span class="c1"># dtype of our NDVI array of the image</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> dtype of NDVI arrayn of first image: &quot;</span><span class="p">,</span> <span class="n">ndvi_1_dtype</span><span class="p">)</span>
+
+<span class="c1"># set the source metadata as kwargs we&#39;ll use to write the new data:</span>
+<span class="n">kwargs_1</span> <span class="o">=</span> <span class="n">meta_1</span>
+
+<span class="c1"># update the &#39;dtype&#39; value to match the NDVI array&#39;s dtype:</span>
+<span class="n">kwargs_1</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="n">ndvi_1_dtype</span><span class="p">)</span>
+
+<span class="c1"># update the &#39;count&#39; value since the output will no longer be a 4-band image:</span>
+<span class="n">kwargs_1</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">count</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Finally, use rasterio to write new raster files:</span>
+<span class="k">with</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;img/ndvi_1.tif&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs_1</span><span class="p">)</span> <span class="k">as</span> <span class="n">dst</span><span class="p">:</span>
+        <span class="n">dst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">ndvi_1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Meta data of the first image: 
+ {&#39;driver&#39;: &#39;GTiff&#39;, &#39;dtype&#39;: &#39;uint16&#39;, &#39;nodata&#39;: 0.0, &#39;width&#39;: 3402, &#39;height&#39;: 3639, &#39;count&#39;: 4, &#39;crs&#39;: CRS.from_epsg(32610), &#39;transform&#39;: Affine(10.0, 0.0, 465380.0,
+       0.0, -10.0, 5488630.0)}
+
+ dtype of NDVI arrayn of first image:  float64
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="applying-a-color-scheme-to-visualize-the-ndvi-values-on-the-new-images">
+<h3>Applying a color scheme to visualize the NDVI values on the new images<a class="headerlink" href="#applying-a-color-scheme-to-visualize-the-ndvi-values-on-the-new-images" title="Permalink to this headline">¶</a></h3>
+<p>The values in our NDVI will range from -1 to 1. To best visualize this, we want to use a diverging color scheme, and we want to center the colorbar at a defined midpoint.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">colors</span>
+
+
+<span class="k">class</span> <span class="nc">MidpointNormalize</span><span class="p">(</span><span class="n">colors</span><span class="o">.</span><span class="n">Normalize</span><span class="p">):</span>
+   
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">midpoint</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">clip</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">midpoint</span> <span class="o">=</span> <span class="n">midpoint</span>
+        <span class="n">colors</span><span class="o">.</span><span class="n">Normalize</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span><span class="p">,</span> <span class="n">clip</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">clip</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+       
+        <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">vmin</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">midpoint</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">vmax</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">masked_array</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="n">numpy</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="interpretation-of-ndvi">
+<h3>Interpretation of NDVI<a class="headerlink" href="#interpretation-of-ndvi" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set min/max values from NDVI range for image</span>
+<span class="n">min_1</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">nanmin</span><span class="p">(</span><span class="n">ndvi_1</span><span class="p">)</span>
+<span class="n">max_1</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">nanmax</span><span class="p">(</span><span class="n">ndvi_1</span><span class="p">)</span>
+
+<span class="c1"># Set our custom midpoint for most effective NDVI analysis</span>
+<span class="n">mid</span><span class="o">=</span><span class="mf">0.1</span>
+
+<span class="c1"># Setting color scheme ref:https://matplotlib.org/users/colormaps.html as a reference</span>
+<span class="n">colormap</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">RdYlGn</span> 
+<span class="n">norm_1</span> <span class="o">=</span> <span class="n">MidpointNormalize</span><span class="p">(</span><span class="n">vmin</span><span class="o">=</span><span class="n">min_1</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">max_1</span><span class="p">,</span> <span class="n">midpoint</span><span class="o">=</span><span class="n">mid</span><span class="p">)</span>
+<span class="n">fig_1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig_1</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+
+<span class="c1"># Use &#39;imshow&#39; to specify the input data, colormap, min, max, and norm for the colorbar</span>
+<span class="n">cbar_plot</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">ndvi_1</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">colormap</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">norm_1</span><span class="p">)</span>
+
+<span class="c1"># Turn off the display of axis labels </span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+
+<span class="c1"># Set a title </span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Normalized Difference Vegetation Index on image_1&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">17</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+
+<span class="c1"># Configure the colorbar</span>
+<span class="n">cbar</span> <span class="o">=</span> <span class="n">fig_1</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">cbar_plot</span><span class="p">,</span> <span class="n">orientation</span><span class="o">=</span><span class="s1">&#39;horizontal&#39;</span><span class="p">,</span> <span class="n">shrink</span><span class="o">=</span><span class="mf">0.65</span><span class="p">)</span>
+
+<span class="c1"># Call &#39;savefig&#39; to save the plots to image files</span>
+<span class="n">fig_1</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;img/ndvi-image_1.png&quot;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">,</span> <span class="n">pad_inches</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+
+<span class="c1"># let&#39;s visualize</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/SARExampleLastLecture_34_0.png" src="../_images/SARExampleLastLecture_34_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="generating-a-histogram-of-ndvi-values">
+<h3>Generating a histogram of NDVI values<a class="headerlink" href="#generating-a-histogram-of-ndvi-values" title="Permalink to this headline">¶</a></h3>
+<p>A Histogram or any other chart  can be useful for quick analysis by giving a visual insight into the distribution of “healthy” vs “unhealthy” vegetation values in your study area.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define a new figure</span>
+<span class="n">histo_1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+
+<span class="c1"># Give this new figure a subplot, which will contain the histogram itself</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">histo_1</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+
+<span class="c1"># Add a title &amp; (x,y) labels to the plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Histogram for ndvi_1&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Values of ndvi_1&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Number of pixels&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+
+
+<span class="c1"># For the x-axis, we want to count every pixel that is not an empty value</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">ndvi_1</span><span class="p">[</span><span class="o">~</span><span class="n">numpy</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">ndvi_1</span><span class="p">)]</span>
+<span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;g&#39;</span>
+<span class="c1"># call &#39;hist` with our x-axis, bins, and color details</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span><span class="n">histtype</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="n">ec</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+
+<span class="c1"># Save the generated figure to an external image file</span>
+<span class="n">histo_1</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;img/histogram_for_ndvi_1.png&quot;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">,</span> <span class="n">pad_inches</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/SARExampleLastLecture_36_0.png" src="../_images/SARExampleLastLecture_36_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="normalized-difference-water-index-ndwi">
+<h2>Normalized difference water index (NDWI)<a class="headerlink" href="#normalized-difference-water-index-ndwi" title="Permalink to this headline">¶</a></h2>
+<p>For the fun of it let us have a look at the Normalized difference water index, too. It is for waterbody detection or change in water level (e.g. flooding). The green and NIR spectral bands can be used for this. Note that the NIR and Shortwave infrared (SWIR) are also used depending on the application and the available satellite data.</p>
+<div class="math notranslate nohighlight">
+\[
+  \rm{NDWI}= \frac{({\rm{Green}}-{\rm{NIR}})}{({\rm{Green}}+{\rm{NIR}})}
+\]</div>
+<div class="section" id="interpretation-of-the-ndwi">
+<h3>Interpretation of the NDWI<a class="headerlink" href="#interpretation-of-the-ndwi" title="Permalink to this headline">¶</a></h3>
+<p>For the variant of the NDWI using green and NIR wavelength the following interpretation is used:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>NDWI &lt; 0.3  ----&gt;  Non-water
+NDWI &gt;= 0.3 ----&gt;  Water.
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">band_green_1</span> <span class="o">=</span> <span class="n">sat_data_1</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">band_nir_1</span> <span class="o">=</span> <span class="n">sat_data_1</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="c1"># Do not display error when divided by zero </span>
+<span class="n">numpy</span><span class="o">.</span><span class="n">seterr</span><span class="p">(</span><span class="n">divide</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span> <span class="n">invalid</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+
+<span class="c1"># NDVI </span>
+<span class="n">ndwi_1</span> <span class="o">=</span> <span class="p">(</span><span class="n">band_green_1</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span> <span class="o">-</span> <span class="n">band_nir_1</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="n">band_green_1</span> <span class="o">+</span> <span class="n">band_nir_1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Lets plot the NDWI for our satellite image</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set min/max values from NDVI range for image</span>
+<span class="n">min_1</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">nanmin</span><span class="p">(</span><span class="n">ndwi_1</span><span class="p">)</span>
+<span class="n">max_1</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">nanmax</span><span class="p">(</span><span class="n">ndwi_1</span><span class="p">)</span>
+
+<span class="c1"># Set our custom midpoint for most effective NDVI analysis</span>
+<span class="n">mid</span><span class="o">=</span><span class="mf">0.1</span>
+
+<span class="c1"># Setting color scheme ref:https://matplotlib.org/users/colormaps.html as a reference</span>
+<span class="n">colormap</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">RdYlBu</span> 
+<span class="n">norm_1</span> <span class="o">=</span> <span class="n">MidpointNormalize</span><span class="p">(</span><span class="n">vmin</span><span class="o">=</span><span class="n">min_1</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">max_1</span><span class="p">,</span> <span class="n">midpoint</span><span class="o">=</span><span class="n">mid</span><span class="p">)</span>
+<span class="n">fig_1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig_1</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+
+<span class="c1"># Use &#39;imshow&#39; to specify the input data, colormap, min, max, and norm for the colorbar</span>
+<span class="n">cbar_plot</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">ndwi_1</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">colormap</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">norm_1</span><span class="p">)</span>
+
+<span class="c1"># Turn off the display of axis labels </span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+
+<span class="c1"># Set a title </span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Normalized Difference Water Index on image_1&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">17</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+
+<span class="c1"># Configure the colorbar</span>
+<span class="n">cbar</span> <span class="o">=</span> <span class="n">fig_1</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">cbar_plot</span><span class="p">,</span> <span class="n">orientation</span><span class="o">=</span><span class="s1">&#39;horizontal&#39;</span><span class="p">,</span> <span class="n">shrink</span><span class="o">=</span><span class="mf">0.65</span><span class="p">)</span>
+
+<span class="c1"># Call &#39;savefig&#39; to save the plots to image files</span>
+<span class="n">fig_1</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;img/ndwi-image_1.png&quot;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">,</span> <span class="n">pad_inches</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+
+<span class="c1"># let&#39;s visualize</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/SARExampleLastLecture_40_0.png" src="../_images/SARExampleLastLecture_40_0.png" />
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="DFT.html" title="previous page">Discrete Fourier Transform</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Markus Lange<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>
